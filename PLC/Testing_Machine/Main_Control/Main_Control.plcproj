@@ -17,6 +17,9 @@
     <LibraryReferences>{d3e48c7f-2e56-4825-b032-defa39d46a2a}</LibraryReferences>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="DUTs\Positions.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="PlcTask.TcTTO">
       <SubType>Code</SubType>
     </Compile>

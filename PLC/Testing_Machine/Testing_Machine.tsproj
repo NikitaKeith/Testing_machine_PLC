@@ -2,7 +2,7 @@
 <TcSmProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4024.32">
 	<DataTypes>
 		<DataType>
-			<Name GUID="{18071995-0000-0000-0000-002000000001}" IecBaseType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..0] OF BIT</Name>
+			<Name GUID="{18071995-0000-0000-0000-002000000001}" IecBaseType="true" BitType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..0] OF BIT</Name>
 			<BitSize>1</BitSize>
 			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
 			<ArrayInfo>
@@ -11,7 +11,7 @@
 			</ArrayInfo>
 		</DataType>
 		<DataType>
-			<Name GUID="{18071995-0000-0000-0000-002000000006}" IecBaseType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..5] OF BIT</Name>
+			<Name GUID="{18071995-0000-0000-0000-002000000006}" IecBaseType="true" BitType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..5] OF BIT</Name>
 			<BitSize>6</BitSize>
 			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
 			<ArrayInfo>
@@ -38,9 +38,275 @@
 		</System>
 		<Plc>
 			<Project GUID="{7CEC6D2E-42B5-471B-B363-981A4D996A20}" Name="Main_Control" PrjFilePath="Main_Control\Main_Control.plcproj" TmcFilePath="Main_Control\Main_Control.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcHash="{45B93721-825F-9133-5CD4-765693B21AB2}">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="Main_Control\Main_Control.tmc" TmcHash="{BDBFCB85-D4A0-7E4F-8985-292D2DF5B270}">
 					<Name>Main_Control Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
+					<Vars VarGrpType="1">
+						<Name>PlcTask Inputs</Name>
+						<Var>
+							<Name>MAIN.Inp_Part_at_Conveyor_1</Name>
+							<Comment><![CDATA[Main Terminal INPUTS
+Part 1(Conveyor 1)	]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Inp_Plunger_Parts_Container_In</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Inp_Plunger_Parts_Container_Out</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Inp_Part_On_Conveyor_1</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Inp_Part_in_front_of_Parts_Alignment</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Inp_Plunger_Parts_Alignment_Left_In</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Inp_Plunger_Parts_Alignment_Left_Out</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Inp_Plunger_Parts_Alignment_Right_In</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Inp_Plunger_Parts_Alignment_Right_Out</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Inp_Plunger_Parts_Alignment_Above_In</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Inp_Plunger_Parts_Alignment_Above_Out</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Inp_Part_in_front_of_Crane</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Inp_Crane_In</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Inp_Crane_Out</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Inp_Crane_Above</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Inp_Crane_Below</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Inp_Motor_1_Protection_Switch_is_OK</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Inp_Conveyor_2_Palette_Left_Side</Name>
+							<Comment><![CDATA[Part 2(Conveyor 2)	]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Inp_Conveyor_2_Palette_Right_Side</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Inp_Palette_in_front_of_Tester</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Inp_Stopper_Below</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Inp_Stopper_Above</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Inp_Feedback_from_Tester</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Inp_Reserve_1</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Inp_Motor_2_Protection_Switch_is_OK</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Inp_Conveyor_2_Pallete_Slider_In</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Inp_Conveyor_2_Pallete_Slider_Out</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Inp_Conveyor_3_Palette_Left_Side</Name>
+							<Comment><![CDATA[Part 3(Conveyor 3)]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Inp_Conveyor_3_Palette_Right_Side</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Inp_Conveyor_3_Pallete_Slider_In</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Inp_Conveyor_3_Pallete_Slider_Out</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Inp_Motor_3_Protection_Switch_is_OK</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Inp_Sortierer_in_Basik_Position</Name>
+							<Comment><![CDATA[Coupler	
+Part 4(Sorting System)]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Inp_Sortierer_Pluger_Above</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Inp_Sortierer_Pluger_Below</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Inp_Measuring_Bar_Sorting_Axis_X</Name>
+							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Inp_Measuring_Bar_Sorting_Axis_Y</Name>
+							<Type>INT</Type>
+						</Var>
+					</Vars>
+					<Vars VarGrpType="2" AreaNo="1">
+						<Name>PlcTask Outputs</Name>
+						<Var>
+							<Name>MAIN.Out_Conveyor_1_Motor_On</Name>
+							<Comment><![CDATA[Main Terminal OUTPUTS
+Part 1(Conveyor 1)	]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Out_Plunger_Parts_Container_Drive_In</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Out_Plunger_Parts_Container_Drive_Out</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Out_Plunger_Parts_Alignment_Left_Drive_In</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Out_Plunger_Parts_Alignment_Left_Drive_Out</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Out_Plunger_Parts_Alignment_Right_Drive_In</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Out_Plunger_Parts_Alignment_Right_Drive_Out</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Out_Plunger_Parts_Alignment_Above_Drive_In</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Out_Plunger_Parts_Alignment_Above_Drive_Out</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Out_Crane_Drive_In</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Out_Crane_Drive_Out</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Out_Crane_Drive_Up</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Out_Crane_Drive_Down</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Out_Conveyor_2_Motor_On</Name>
+							<Comment><![CDATA[Part 2(Conveyor 2)	]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Out_Stopper_Drive_Up</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Out_Stopper_Drive_Down</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Out_Conveyor_2_Pallete_Slider_Drive_In</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Out_Conveyor_2_Pallete_Slider_Drive_Out</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Out_Conveyor_3_Motor_On</Name>
+							<Comment><![CDATA[Part 3(Conveyor 3)]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Out_Conveyor_3_Pallete_Slider_Drive_In</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Out_Conveyor_3_Pallete_Slider_Drive_Out</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Out_Sortierer_Pluger_Drive_Up</Name>
+							<Comment><![CDATA[Coupler	
+Part 4(Sorting System)]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Out_Sortierer_Pluger_Drive_Down</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Out_Measuring_Bar_Sorting_Axis_X_Motor_On</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Out_Measuring_Bar_Sorting_Axis_Y_Motor_On</Name>
+							<Type>BOOL</Type>
+						</Var>
+					</Vars>
 					<Contexts>
 						<Context>
 							<Id NeedCalleeCall="true">0</Id>
