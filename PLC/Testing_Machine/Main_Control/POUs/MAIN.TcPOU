@@ -88,9 +88,8 @@ VAR
 	Out_Sortierer_Pluger_Drive_Up						AT%Q*:BOOL;
 	Out_Sortierer_Pluger_Drive_Down						AT%Q*:BOOL;	
 	Out_Measuring_Bar_Sorting_Axis_X_Motor_On			AT%Q*:BOOL;
-	Out_Measuring_Bar_Sorting_Axis_Y_Motor_On			AT%Q*:BOOL;
-END_VAR
-]]></Declaration>
+	Out_Measuring_Bar_Sorting_Axis_Y_Motor_On			AT%Q*:BOOL;	
+END_VAR]]></Declaration>
     <Implementation>
       <ST><![CDATA[]]></ST>
     </Implementation>
