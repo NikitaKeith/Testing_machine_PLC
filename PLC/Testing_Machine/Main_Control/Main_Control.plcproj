@@ -17,6 +17,9 @@
     <LibraryReferences>{d3e48c7f-2e56-4825-b032-defa39d46a2a}</LibraryReferences>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="DUTs\Places_position.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="DUTs\Positions.TcDUT">
       <SubType>Code</SubType>
     </Compile>
@@ -26,10 +29,23 @@
     <Compile Include="POUs\MAIN.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="POUs\Motors\i_Motor.TcIO">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Motors\Motor_Conveyor_1.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Motors\Motor_Sorting.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Motors\Positions_init.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DUTs" />
     <Folder Include="GVLs" />
+    <Folder Include="POUs\Motors" />
     <Folder Include="VISUs" />
     <Folder Include="POUs" />
   </ItemGroup>

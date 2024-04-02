@@ -5,7 +5,10 @@
 {attribute 'strict'}
 TYPE Positions :
 (
-	Position_1 := 0
+	Position_1 := 4100,
+	Position_2 := 12300,
+	Position_3 := 20500,
+	Position_4 := 28700
 );
 END_TYPE
 ]]></Declaration>

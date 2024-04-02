@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="Motor_Conveyor_1" Id="{007fbfa0-f3aa-4518-bc68-198fbeeca44e}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK Motor_Conveyor_1 IMPLEMENTS i_Motor
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Method Name="Motor_Off" Id="{de3d80f9-e893-4f0f-9369-891afdb69e0b}">
+      <Declaration><![CDATA[{warning 'add method implementation '}
+METHOD Motor_Off : BOOL
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Motor_On" Id="{0ca6c61e-e247-4933-9cff-197f27f74695}">
+      <Declaration><![CDATA[{warning 'add method implementation '}
+METHOD Motor_On : BOOL
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[]]></ST>
+      </Implementation>
+    </Method>
+    <LineIds Name="Motor_Conveyor_1">
+      <LineId Id="9" Count="0" />
+    </LineIds>
+    <LineIds Name="Motor_Conveyor_1.Motor_Off">
+      <LineId Id="4" Count="0" />
+    </LineIds>
+    <LineIds Name="Motor_Conveyor_1.Motor_On">
+      <LineId Id="4" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

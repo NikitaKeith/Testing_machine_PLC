@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <Itf Name="i_Motor" Id="{02a4d88a-8ce5-4c1e-8bfa-11e2823d0df8}">
+    <Declaration><![CDATA[INTERFACE i_Motor
+VAR_INPUT
+	Sensor_Motor_On					:BOOL;
+	Sensor_Motor_Off				:BOOL;
+	Feedback_Protection_Switch		:BOOL;
+END_VAR
+VAR_OUTPUT
+	Motor_On						:BOOL;
+	//Motor_Off						:BOOL;
+END_VAR
+VAR
+END_VAR]]></Declaration>
+    <Method Name="Motor_Off" Id="{0fea4450-f376-445c-9516-0fdd66abbd42}">
+      <Declaration><![CDATA[METHOD Motor_Off : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+    </Method>
+    <Method Name="Motor_On" Id="{56c0af33-fba9-42f0-a2ef-80223b57a310}">
+      <Declaration><![CDATA[METHOD Motor_On : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+    </Method>
+  </Itf>
+</TcPlcObject>

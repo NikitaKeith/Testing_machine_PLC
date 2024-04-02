@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <DUT Name="Places_position" Id="{33092905-1108-4fd6-a04e-9138295c3156}">
+    <Declaration><![CDATA[TYPE Places_position :
+STRUCT
+	Number				: INT;
+	Coordinate_X_Axis	: INT;
+	Coordinate_Y_Axis	: INT;
+END_STRUCT
+END_TYPE]]></Declaration>
+  </DUT>
+</TcPlcObject>

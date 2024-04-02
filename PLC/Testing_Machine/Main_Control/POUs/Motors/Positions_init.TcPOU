@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="Positions_init" Id="{d40c313c-a4a0-4c19-a065-c5edb0e93e52}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK Positions_init
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+	Current_Position: Array [0..10] of Places_position;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[Current_Position[0].Number:=0;
+Current_Position[0].Coordinate_X_Axis:=Positions.Position_1;
+Current_Position[0].Coordinate_Y_Axis:=Positions.Position_2;
+
+Current_Position[1].Number:=0;
+Current_Position[1].Coordinate_X_Axis:=Positions.Position_1;
+Current_Position[1].Coordinate_Y_Axis:=Positions.Position_2;
+
+Current_Position[2].Number:=0;
+Current_Position[2].Coordinate_X_Axis:=Positions.Position_1;
+Current_Position[2].Coordinate_Y_Axis:=Positions.Position_2;
+
+Current_Position[3].Number:=0;
+Current_Position[3].Coordinate_X_Axis:=Positions.Position_1;
+Current_Position[3].Coordinate_Y_Axis:=Positions.Position_2;
+
+Current_Position[4].Number:=0;
+Current_Position[4].Coordinate_X_Axis:=Positions.Position_1;
+Current_Position[4].Coordinate_Y_Axis:=Positions.Position_2;
+
+Current_Position[5].Number:=0;
+Current_Position[5].Coordinate_X_Axis:=Positions.Position_1;
+Current_Position[5].Coordinate_Y_Axis:=Positions.Position_2;
+
+Current_Position[6].Number:=0;
+Current_Position[6].Coordinate_X_Axis:=Positions.Position_1;
+Current_Position[6].Coordinate_Y_Axis:=Positions.Position_2;
+
+Current_Position[7].Number:=0;
+Current_Position[7].Coordinate_X_Axis:=Positions.Position_1;
+Current_Position[7].Coordinate_Y_Axis:=Positions.Position_2;
+
+Current_Position[8].Number:=0;
+Current_Position[8].Coordinate_X_Axis:=Positions.Position_1;
+Current_Position[8].Coordinate_Y_Axis:=Positions.Position_2;
+
+Current_Position[9].Number:=0;
+Current_Position[9].Coordinate_X_Axis:=Positions.Position_1;
+Current_Position[9].Coordinate_Y_Axis:=Positions.Position_2;
+
+Current_Position[10].Number:=0;
+Current_Position[10].Coordinate_X_Axis:=Positions.Position_1;
+Current_Position[10].Coordinate_Y_Axis:=Positions.Position_2;]]></ST>
+    </Implementation>
+    <LineIds Name="Positions_init">
+      <LineId Id="9" Count="0" />
+      <LineId Id="11" Count="1" />
+      <LineId Id="14" Count="2" />
+      <LineId Id="13" Count="0" />
+      <LineId Id="18" Count="2" />
+      <LineId Id="17" Count="0" />
+      <LineId Id="22" Count="2" />
+      <LineId Id="21" Count="0" />
+      <LineId Id="26" Count="2" />
+      <LineId Id="25" Count="0" />
+      <LineId Id="30" Count="2" />
+      <LineId Id="29" Count="0" />
+      <LineId Id="34" Count="2" />
+      <LineId Id="33" Count="0" />
+      <LineId Id="38" Count="2" />
+      <LineId Id="37" Count="0" />
+      <LineId Id="42" Count="2" />
+      <LineId Id="41" Count="0" />
+      <LineId Id="46" Count="2" />
+      <LineId Id="45" Count="0" />
+      <LineId Id="50" Count="2" />
+      <LineId Id="49" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
