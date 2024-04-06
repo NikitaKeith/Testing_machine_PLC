@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="Conveyor_1" Id="{007fbfa0-f3aa-4518-bc68-198fbeeca44e}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK Conveyor_1
+VAR_INPUT
+	Inp_Part_at_Conveyor_1									: BOOL;
+	Inp_Plunger_Parts_Container_In							: BOOL;
+	Inp_Plunger_Parts_Container_Out							: BOOL;
+	Inp_Part_On_Conveyor_1									: BOOL;
+	Inp_Part_in_front_of_Parts_Alignment					: BOOL;
+	Inp_Plunger_Parts_Alignment_Left_In						: BOOL;
+	Inp_Plunger_Parts_Alignment_Left_Out					: BOOL;
+	Inp_Plunger_Parts_Alignment_Right_In					: BOOL;	
+	
+	Inp_Plunger_Parts_Alignment_Right_Out					: BOOL;
+	Inp_Plunger_Parts_Alignment_Above_In					: BOOL;
+	Inp_Plunger_Parts_Alignment_Above_Out					: BOOL;
+	Inp_Part_in_front_of_Crane								: BOOL;
+	Inp_Crane_In											: BOOL;
+	Inp_Crane_Out											: BOOL;
+	Inp_Crane_Above											: BOOL;
+	Inp_Crane_Below											: BOOL;
+	
+	Inp_Motor_1_Protection_Switch_is_OK						: BOOL;
+	Inp_Base_Positions										: BOOL;
+END_VAR
+VAR_OUTPUT
+	Out_Conveyor_1_Motor_On									 : BOOL;
+	Out_Plunger_Parts_Container_Drive_In					 : BOOL;
+	Out_Plunger_Parts_Container_Drive_Out					 : BOOL;
+	Out_Plunger_Parts_Alignment_Left_Drive_In			  	 : BOOL;
+	Out_Plunger_Parts_Alignment_Left_Drive_Out				 : BOOL;
+	Out_Plunger_Parts_Alignment_Right_Drive_In			 	 : BOOL;		
+	Out_Plunger_Parts_Alignment_Right_Drive_Out				 : BOOL;
+	Out_Plunger_Parts_Alignment_Above_Drive_In				 : BOOL;	
+	Out_Plunger_Parts_Alignment_Above_Drive_Out				 : BOOL;
+	Out_Crane_Drive_In										 : BOOL;
+	Out_Crane_Drive_Out										 : BOOL;
+	Out_Crane_Drive_Up										 : BOOL;
+	Out_Crane_Drive_Down									 : BOOL;
+END_VAR
+VAR
+	TON_Plunger_Parts_Container_1Sec_open					 : TON;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[TON_Plunger_Parts_Container_1Sec_open(IN:= Inp_Plunger_Parts_Container_In, PT:= T#1S, Q=> , ET=> );
+
+IF Inp_Part_at_Conveyor_1 AND NOT Out_Conveyor_1_Motor_On AND NOT Inp_Part_in_front_of_Crane AND NOT Inp_Part_On_Conveyor_1	
+	THEN
+	Out_Plunger_Parts_Container_Drive_Out:=FALSE;
+	Out_Plunger_Parts_Container_Drive_In:=TRUE;
+END_IF
+
+IF TON_Plunger_Parts_Container_1Sec_open.Q
+	THEN 
+	Out_Plunger_Parts_Container_Drive_In:=FALSE;
+	Out_Plunger_Parts_Container_Drive_Out:=TRUE;
+END_IF
+
+IF Inp_Part_On_Conveyor_1
+	THEN Out_Conveyor_1_Motor_On:=TRUE;
+END_IF
+
+IF ]]></ST>
+    </Implementation>
+    <LineIds Name="Conveyor_1">
+      <LineId Id="55" Count="1" />
+      <LineId Id="9" Count="0" />
+      <LineId Id="53" Count="0" />
+      <LineId Id="50" Count="0" />
+      <LineId Id="52" Count="0" />
+      <LineId Id="51" Count="0" />
+      <LineId Id="58" Count="0" />
+      <LineId Id="57" Count="0" />
+      <LineId Id="59" Count="0" />
+      <LineId Id="61" Count="1" />
+      <LineId Id="60" Count="0" />
+      <LineId Id="64" Count="0" />
+      <LineId Id="63" Count="0" />
+      <LineId Id="65" Count="1" />
+      <LineId Id="68" Count="0" />
+      <LineId Id="67" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

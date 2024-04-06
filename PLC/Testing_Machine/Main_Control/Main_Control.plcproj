@@ -17,22 +17,50 @@
     <LibraryReferences>{d3e48c7f-2e56-4825-b032-defa39d46a2a}</LibraryReferences>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="DUTs\E_EventType.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="DUTs\Places_position.TcDUT">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DUTs\Positions.TcDUT">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DUTs\ST_Event.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GVLs\GVL.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
     <Compile Include="PlcTask.TcTTO">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\EventLogger.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\FB_Time_Counter.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Save_Error.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\F_UpdateEvent.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Machine_Base_Position.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\MAIN.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="POUs\Motors\i_Motor.TcIO">
+    <Compile Include="POUs\Motors\Conveyor_1.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="POUs\Motors\Motor_Conveyor_1.TcPOU">
+    <Compile Include="POUs\Motors\Conveyor_2.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Motors\Conveyor_3.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\Motors\Motor_Sorting.TcPOU">
@@ -67,6 +95,10 @@
     <None Include="Main_Control.tmc">
       <SubType>Content</SubType>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <SubObject Include="EventLogger.AddEvent" />
+    <SubObject Include="EventLogger.isEventBufferFull" />
   </ItemGroup>
   <ProjectExtensions>
     <PlcProjectOptions>

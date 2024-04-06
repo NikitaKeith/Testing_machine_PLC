@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="Save_Error" Id="{d6bb0aba-4053-4ccb-9bd3-82a11520eff9}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK Save_Error
+VAR_INPUT
+	Error	 					: BOOL;
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+	eventLogger								: EventLogger;
+	Error_Trigger							: R_TRIG;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[Error_Trigger(CLK:= Error, Q=> );
+
+IF Error_Trigger.Q
+	THEN eventLogger.AddEvent(
+	What_happend:= 'Conveyor 1', 
+	sEventText:= 'Protection Switch', 
+	eEventType:= E_EventType.Alarm, 
+	eEventSeverity:= TcEventSeverity.Critical);
+END_IF
+]]></ST>
+    </Implementation>
+    <LineIds Name="Save_Error">
+      <LineId Id="3" Count="8" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

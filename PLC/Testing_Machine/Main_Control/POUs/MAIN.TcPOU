@@ -5,99 +5,118 @@
 VAR
 	//Main Terminal INPUTS
 		//Part 1(Conveyor 1)	
-	Inp_Part_at_Conveyor_1								AT%I*:BOOL;
-	Inp_Plunger_Parts_Container_In						AT%I*:BOOL;
-	Inp_Plunger_Parts_Container_Out						AT%I*:BOOL;
-	Inp_Part_On_Conveyor_1								AT%I*:BOOL;
-	Inp_Part_in_front_of_Parts_Alignment				AT%I*:BOOL;
-	Inp_Plunger_Parts_Alignment_Left_In					AT%I*:BOOL;
-	Inp_Plunger_Parts_Alignment_Left_Out				AT%I*:BOOL;
-	Inp_Plunger_Parts_Alignment_Right_In				AT%I*:BOOL;	
+	Inp_Part_at_Conveyor_1								AT%I*: BOOL;
+	Inp_Plunger_Parts_Container_In						AT%I*: BOOL;
+	Inp_Plunger_Parts_Container_Out						AT%I*: BOOL;
+	Inp_Part_On_Conveyor_1								AT%I*: BOOL;
+	Inp_Part_in_front_of_Parts_Alignment				AT%I*: BOOL;
+	Inp_Plunger_Parts_Alignment_Left_In					AT%I*: BOOL;
+	Inp_Plunger_Parts_Alignment_Left_Out				AT%I*: BOOL;
+	Inp_Plunger_Parts_Alignment_Right_In				AT%I*: BOOL;	
 	
-	Inp_Plunger_Parts_Alignment_Right_Out				AT%I*:BOOL;
-	Inp_Plunger_Parts_Alignment_Above_In				AT%I*:BOOL;
-	Inp_Plunger_Parts_Alignment_Above_Out				AT%I*:BOOL;
-	Inp_Part_in_front_of_Crane							AT%I*:BOOL;
-	Inp_Crane_In										AT%I*:BOOL;
-	Inp_Crane_Out										AT%I*:BOOL;
-	Inp_Crane_Above										AT%I*:BOOL;
-	Inp_Crane_Below										AT%I*:BOOL;
+	Inp_Plunger_Parts_Alignment_Right_Out				AT%I*: BOOL;
+	Inp_Plunger_Parts_Alignment_Above_In				AT%I*: BOOL;
+	Inp_Plunger_Parts_Alignment_Above_Out				AT%I*: BOOL;
+	Inp_Part_in_front_of_Crane							AT%I*: BOOL;
+	Inp_Crane_In										AT%I*: BOOL;
+	Inp_Crane_Out										AT%I*: BOOL;
+	Inp_Crane_Above										AT%I*: BOOL;
+	Inp_Crane_Below										AT%I*: BOOL;
 	
-	Inp_Motor_1_Protection_Switch_is_OK					AT%I*:BOOL;
+	Inp_Motor_1_Protection_Switch_is_OK					AT%I*: BOOL;
+	Inp_Base_Positions									AT%I*: BOOL;
 	
 		//Part 2(Conveyor 2)	
-	Inp_Conveyor_2_Palette_Left_Side					AT%I*:BOOL;
-	Inp_Conveyor_2_Palette_Right_Side					AT%I*:BOOL;
-	Inp_Palette_in_front_of_Tester						AT%I*:BOOL;
-	Inp_Stopper_Below									AT%I*:BOOL;
-	Inp_Stopper_Above									AT%I*:BOOL;
-	Inp_Feedback_from_Tester							AT%I*:BOOL;
-	Inp_Reserve_1										AT%I*:BOOL;
-	Inp_Motor_2_Protection_Switch_is_OK					AT%I*:BOOL;
+	Inp_Conveyor_2_Palette_Left_Side					AT%I*: BOOL;
+	Inp_Conveyor_2_Palette_Right_Side					AT%I*: BOOL;
+	Inp_Palette_in_front_of_Tester						AT%I*: BOOL;
+	Inp_Stopper_Below									AT%I*: BOOL;
+	Inp_Stopper_Above									AT%I*: BOOL;
+	Inp_Feedback_from_Tester							AT%I*: BOOL;
+	Inp_Reserve_1										AT%I*: BOOL;
+	Inp_Motor_2_Protection_Switch_is_OK					AT%I*: BOOL;
 	
-	Inp_Conveyor_2_Pallete_Slider_In					AT%I*:BOOL;
-	Inp_Conveyor_2_Pallete_Slider_Out					AT%I*:BOOL;
+	Inp_Conveyor_2_Pallete_Slider_In					AT%I*: BOOL;
+	Inp_Conveyor_2_Pallete_Slider_Out					AT%I*: BOOL;
 		
 		//Part 3(Conveyor 3)
-	Inp_Conveyor_3_Palette_Left_Side					AT%I*:BOOL;
-	Inp_Conveyor_3_Palette_Right_Side					AT%I*:BOOL;	
-	Inp_Conveyor_3_Pallete_Slider_In					AT%I*:BOOL;
-	Inp_Conveyor_3_Pallete_Slider_Out					AT%I*:BOOL;	
-	Inp_Motor_3_Protection_Switch_is_OK					AT%I*:BOOL;
+	Inp_Conveyor_3_Palette_Left_Side					AT%I*: BOOL;
+	Inp_Conveyor_3_Palette_Right_Side					AT%I*: BOOL;	
+	Inp_Conveyor_3_Pallete_Slider_In					AT%I*: BOOL;
+	Inp_Conveyor_3_Pallete_Slider_Out					AT%I*: BOOL;	
+	Inp_Motor_3_Protection_Switch_is_OK					AT%I*: BOOL;
 
 	//Coupler	
 		//Part 4(Sorting System)
-	Inp_Sortierer_in_Basik_Position						AT%I*:BOOL;
-	Inp_Sortierer_Pluger_Above							AT%I*:BOOL;
-	Inp_Sortierer_Pluger_Below							AT%I*:BOOL;
-	Inp_Measuring_Bar_Sorting_Axis_X					AT%I*:INT;
-	Inp_Measuring_Bar_Sorting_Axis_Y					AT%I*:INT;
+	Inp_Sorter_in_Basik_Position						AT%I*: BOOL;
+	Inp_Sorter_Plunger_Above							AT%I*: BOOL;
+	Inp_Sorter_Plunger_Below							AT%I*: BOOL;
+	Inp_Measuring_Bar_Sorting_Axis_X					AT%I*: INT;
+	Inp_Measuring_Bar_Sorting_Axis_Y					AT%I*: INT;
+	Inp_Form_is_Changed_Button							AT%I*: BOOL;
 	
 
 	//Main Terminal OUTPUTS
 		//Part 1(Conveyor 1)	
-	Out_Conveyor_1_Motor_On								AT%Q*:BOOL;
-	Out_Plunger_Parts_Container_Drive_In				AT%Q*:BOOL;
-	Out_Plunger_Parts_Container_Drive_Out				AT%Q*:BOOL;
-	Out_Plunger_Parts_Alignment_Left_Drive_In			AT%Q*:BOOL;
-	Out_Plunger_Parts_Alignment_Left_Drive_Out			AT%Q*:BOOL;
-	Out_Plunger_Parts_Alignment_Right_Drive_In			AT%Q*:BOOL;		
-	Out_Plunger_Parts_Alignment_Right_Drive_Out			AT%Q*:BOOL;
-	Out_Plunger_Parts_Alignment_Above_Drive_In			AT%Q*:BOOL;
+	Out_Conveyor_1_Motor_On								AT%Q*: BOOL;
+	Out_Plunger_Parts_Container_Drive_In				AT%Q*: BOOL;
+	Out_Plunger_Parts_Container_Drive_Out				AT%Q*: BOOL;
+	Out_Plunger_Parts_Alignment_Left_Drive_In			AT%Q*: BOOL;
+	Out_Plunger_Parts_Alignment_Left_Drive_Out			AT%Q*: BOOL;
+	Out_Plunger_Parts_Alignment_Right_Drive_In			AT%Q*: BOOL;		
+	Out_Plunger_Parts_Alignment_Right_Drive_Out			AT%Q*: BOOL;
+	Out_Plunger_Parts_Alignment_Above_Drive_In			AT%Q*: BOOL;
 	
-	Out_Plunger_Parts_Alignment_Above_Drive_Out			AT%Q*:BOOL;
-	Out_Crane_Drive_In									AT%Q*:BOOL;
-	Out_Crane_Drive_Out									AT%Q*:BOOL;
-	Out_Crane_Drive_Up									AT%Q*:BOOL;
-	Out_Crane_Drive_Down								AT%Q*:BOOL;
+	Out_Plunger_Parts_Alignment_Above_Drive_Out			AT%Q*: BOOL;
+	Out_Crane_Drive_In									AT%Q*: BOOL;
+	Out_Crane_Drive_Out									AT%Q*: BOOL;
+	Out_Crane_Drive_Up									AT%Q*: BOOL;
+	Out_Crane_Drive_Down								AT%Q*: BOOL;
 	
 		//Part 2(Conveyor 2)	
-	Out_Conveyor_2_Motor_On								AT%Q*:BOOL;
-	Out_Stopper_Drive_Up								AT%Q*:BOOL;
-	Out_Stopper_Drive_Down								AT%Q*:BOOL;
-	Out_Conveyor_2_Pallete_Slider_Drive_In				AT%Q*:BOOL;
-	Out_Conveyor_2_Pallete_Slider_Drive_Out				AT%Q*:BOOL;
+	Out_Conveyor_2_Motor_On								AT%Q*: BOOL;
+	Out_Stopper_Drive_Up								AT%Q*: BOOL;
+	Out_Stopper_Drive_Down								AT%Q*: BOOL;
+	Out_Conveyor_2_Pallete_Slider_Drive_In				AT%Q*: BOOL;
+	Out_Conveyor_2_Pallete_Slider_Drive_Out				AT%Q*: BOOL;
 	
 		//Part 3(Conveyor 3)
-	Out_Conveyor_3_Motor_On								AT%Q*:BOOL;	
-	Out_Conveyor_3_Pallete_Slider_Drive_In				AT%Q*:BOOL;
-	Out_Conveyor_3_Pallete_Slider_Drive_Out				AT%Q*:BOOL;
+	Out_Conveyor_3_Motor_On								AT%Q*: BOOL;	
+	Out_Conveyor_3_Pallete_Slider_Drive_In				AT%Q*: BOOL;
+	Out_Conveyor_3_Pallete_Slider_Drive_Out				AT%Q*: BOOL;
 
 	//Coupler	
 		//Part 4(Sorting System)
-	Out_Sortierer_Pluger_Drive_Up						AT%Q*:BOOL;
-	Out_Sortierer_Pluger_Drive_Down						AT%Q*:BOOL;	
-	Out_Measuring_Bar_Sorting_Axis_X_Motor_On			AT%Q*:BOOL;
-	Out_Measuring_Bar_Sorting_Axis_Y_Motor_On			AT%Q*:BOOL;
-	Out_Sortierer_Pluger_Pull_in						AT%Q*:BOOL;
+	Out_Sortierer_Pluger_Drive_Up						AT%Q*: BOOL;
+	Out_Sortierer_Pluger_Drive_Down						AT%Q*: BOOL;	
+	Out_Measuring_Bar_Sorting_Axis_X_Motor_On			AT%Q*: BOOL;
+	Out_Measuring_Bar_Sorting_Axis_Y_Motor_On			AT%Q*: BOOL;
+	Out_Sorter_Pluger_Pull_in							AT%Q*: BOOL;
 	
 	position:Positions;
 	a:INT;
+	motor_Sorting:Motor_Sorting;
 END_VAR]]></Declaration>
     <Implementation>
-      <ST><![CDATA[]]></ST>
+      <ST><![CDATA[motor_Sorting(
+	Inp_Conveyor_2_Palette_Right_Side_at_Sorter:= , 
+	Inp_Sortierer_in_Basic_Position:= , 
+	Inp_Sorter_Plunger_Above:= , 
+	Inp_Sorter_Plunger_Below:= , 
+	Inp_Measuring_Bar_Sorting_Axis_X:= , 
+	Inp_Measuring_Bar_Sorting_Axis_Y:= , 
+	Inp_Form_is_Changed_Button:= , 
+	Out_Sorter_Pluger_Drive_Up=> , 
+	Out_Sorter_Pluger_Drive_Down=> , 
+	Out_Measuring_Bar_Sorting_Axis_X_Right_Rotation_Motor_On=> , 
+	Out_Measuring_Bar_Sorting_Axis_Y_Right_Rotation_Motor_On=> , 
+	Out_Measuring_Bar_Sorting_Axis_X_Left_Rotation_Motor_On=> , 
+	Out_Measuring_Bar_Sorting_Axis_Y_Left_Rotation_Motor_On=> , 
+	Out_Sorter_Pluger_Pull_in=> , 
+	Palette_at_Sorter_is_free=> );]]></ST>
     </Implementation>
     <LineIds Name="MAIN">
+      <LineId Id="98" Count="14" />
       <LineId Id="2" Count="0" />
     </LineIds>
   </POU>

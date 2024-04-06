@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# TcXaeShell Solution File, Format Version 11.00
+VisualStudioVersion = 15.0.33403.129
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FE7A1B72-C5B7-4D7C-BB7D-76384D4DE8E1}") = "HMI_Testing_Machine", "HMI_Testing_Machine\HMI_Testing_Machine.hmiproj", "{BC81A8BF-EE38-47C4-AE91-02574DE099CD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|TwinCAT HMI = Debug|TwinCAT HMI
+		Release|TwinCAT HMI = Release|TwinCAT HMI
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BC81A8BF-EE38-47C4-AE91-02574DE099CD}.Debug|TwinCAT HMI.ActiveCfg = Debug|TwinCAT HMI
+		{BC81A8BF-EE38-47C4-AE91-02574DE099CD}.Debug|TwinCAT HMI.Build.0 = Debug|TwinCAT HMI
+		{BC81A8BF-EE38-47C4-AE91-02574DE099CD}.Release|TwinCAT HMI.ActiveCfg = Release|TwinCAT HMI
+		{BC81A8BF-EE38-47C4-AE91-02574DE099CD}.Release|TwinCAT HMI.Build.0 = Release|TwinCAT HMI
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0A4A0067-B15F-452C-9F9C-5F87D1B02FFF}
+	EndGlobalSection
+EndGlobal

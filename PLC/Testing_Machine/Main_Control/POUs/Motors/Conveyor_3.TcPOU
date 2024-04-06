@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="Conveyor_3" Id="{aef875ec-eabd-4b45-a2e3-cc6aeda63d3a}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK Conveyor_3
+VAR_INPUT
+	Inp_Conveyor_3_Palette_Left_Side					: BOOL;
+	Inp_Conveyor_3_Palette_Right_Side					: BOOL;	
+	Inp_Conveyor_3_Pallete_Slider_In					: BOOL;
+	Inp_Conveyor_3_Pallete_Slider_Out					: BOOL;	
+	Inp_Motor_3_Protection_Switch_is_OK					: BOOL;
+END_VAR
+VAR_OUTPUT
+	Out_Conveyor_3_Motor_On								: BOOL;	
+	Out_Conveyor_3_Pallete_Slider_Drive_In				: BOOL;
+	Out_Conveyor_3_Pallete_Slider_Drive_Out				: BOOL;
+	Out_Sortierer_Pluger_Drive_Up						: BOOL;
+	Out_Sortierer_Pluger_Drive_Down						: BOOL;	
+	Out_Measuring_Bar_Sorting_Axis_X_Motor_On			: BOOL;
+	Out_Measuring_Bar_Sorting_Axis_Y_Motor_On			: BOOL;
+	Out_Sorter_Pluger_Pull_in							: BOOL;
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <LineIds Name="Conveyor_3">
+      <LineId Id="9" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

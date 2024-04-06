@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="Machine_Base_Position" Id="{4ef9c4e8-467c-4dd0-84ed-47994cb7c37a}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK Machine_Base_Position
+VAR_INPUT
+	Inp_Base_Positions 									: BOOL;
+END_VAR
+VAR_OUTPUT
+	Out_Conveyor_1_Motor_On								: BOOL;
+	Out_Plunger_Parts_Container_Drive_In				: BOOL;
+	Out_Plunger_Parts_Container_Drive_Out				: BOOL;
+	Out_Plunger_Parts_Alignment_Left_Drive_In			: BOOL;
+	Out_Plunger_Parts_Alignment_Left_Drive_Out			: BOOL;
+	Out_Plunger_Parts_Alignment_Right_Drive_In			: BOOL;		
+	Out_Plunger_Parts_Alignment_Right_Drive_Out			: BOOL;
+	Out_Plunger_Parts_Alignment_Above_Drive_In			: BOOL;	
+	Out_Plunger_Parts_Alignment_Above_Drive_Out			: BOOL;
+	Out_Crane_Drive_In									: BOOL;
+	Out_Crane_Drive_Out									: BOOL;
+	Out_Crane_Drive_Up									: BOOL;
+	Out_Crane_Drive_Down								: BOOL;
+	
+		//Part 2(Conveyor 2)	
+	Out_Conveyor_2_Motor_On								: BOOL;
+	Out_Stopper_Drive_Up								: BOOL;
+	Out_Stopper_Drive_Down								: BOOL;
+	Out_Conveyor_2_Pallete_Slider_Drive_In				: BOOL;
+	Out_Conveyor_2_Pallete_Slider_Drive_Out				: BOOL;
+	
+		//Part 3(Conveyor 3)
+	Out_Conveyor_3_Motor_On								: BOOL;	
+	Out_Conveyor_3_Pallete_Slider_Drive_In				: BOOL;
+	Out_Conveyor_3_Pallete_Slider_Drive_Out				: BOOL;
+	Out_Sortierer_Pluger_Drive_Up						: BOOL;
+	Out_Sortierer_Pluger_Drive_Down						: BOOL;	
+	Out_Measuring_Bar_Sorting_Axis_X_Motor_On			: BOOL;
+	Out_Measuring_Bar_Sorting_Axis_Y_Motor_On			: BOOL;
+	Out_Sorter_Pluger_Pull_in							: BOOL;
+END_VAR
+VAR
+	TON_Incident_Protection								: TON;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[TON_Incident_Protection(IN:= Inp_Base_Positions, PT:= T#3S, Q=> , ET=> );
+
+IF Inp_Base_Positions AND TON_Incident_Protection.Q //goes after 3 seconds pushing
+	THEN 
+		//Conveyor 1	
+	Out_Conveyor_1_Motor_On								:=FALSE;
+	Out_Plunger_Parts_Container_Drive_In				:=FALSE;
+	Out_Plunger_Parts_Alignment_Right_Drive_Out			:=FALSE;
+	Out_Plunger_Parts_Alignment_Left_Drive_Out			:=FALSE;
+	Out_Crane_Drive_Down								:=FALSE;	
+	Out_Plunger_Parts_Alignment_Above_Drive_Out			:=FALSE;
+	Out_Crane_Drive_Out									:=FALSE;
+	Out_Crane_Drive_In									:=TRUE;
+	Out_Plunger_Parts_Alignment_Above_Drive_In			:=TRUE;	
+	Out_Plunger_Parts_Alignment_Right_Drive_In			:=TRUE;		
+	Out_Crane_Drive_Up									:=TRUE;
+	Out_Plunger_Parts_Container_Drive_Out				:=TRUE;
+	Out_Plunger_Parts_Alignment_Left_Drive_In			:=TRUE;
+	
+		//Conveyor 2	
+	Out_Conveyor_2_Motor_On								:=FALSE;
+	Out_Stopper_Drive_Up								:=FALSE;
+	Out_Conveyor_2_Pallete_Slider_Drive_Out				:=FALSE;
+	Out_Stopper_Drive_Down								:=TRUE;
+	Out_Conveyor_2_Pallete_Slider_Drive_In				:=TRUE;
+	
+		//Conveyor 3
+	Out_Conveyor_3_Motor_On								:=FALSE;	
+	Out_Sortierer_Pluger_Drive_Down						:=FALSE;	
+	Out_Sorter_Pluger_Pull_in							:=FALSE;
+	Out_Conveyor_3_Pallete_Slider_Drive_Out				:=FALSE;
+	Out_Sortierer_Pluger_Drive_Up						:=TRUE;
+	Out_Conveyor_3_Pallete_Slider_Drive_In				:=TRUE;
+
+	Main.motor_Sorting.to_Start();
+END_IF]]></ST>
+    </Implementation>
+    <LineIds Name="Machine_Base_Position">
+      <LineId Id="103" Count="1" />
+      <LineId Id="9" Count="0" />
+      <LineId Id="24" Count="0" />
+      <LineId Id="105" Count="0" />
+      <LineId Id="71" Count="1" />
+      <LineId Id="74" Count="3" />
+      <LineId Id="80" Count="2" />
+      <LineId Id="108" Count="0" />
+      <LineId Id="83" Count="0" />
+      <LineId Id="106" Count="1" />
+      <LineId Id="85" Count="3" />
+      <LineId Id="109" Count="0" />
+      <LineId Id="89" Count="1" />
+      <LineId Id="92" Count="2" />
+      <LineId Id="111" Count="0" />
+      <LineId Id="95" Count="2" />
+      <LineId Id="110" Count="0" />
+      <LineId Id="101" Count="0" />
+      <LineId Id="36" Count="0" />
+      <LineId Id="12" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

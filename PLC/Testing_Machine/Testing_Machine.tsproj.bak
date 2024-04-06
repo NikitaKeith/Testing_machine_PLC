@@ -38,7 +38,7 @@
 		</System>
 		<Plc>
 			<Project GUID="{7CEC6D2E-42B5-471B-B363-981A4D996A20}" Name="Main_Control" PrjFilePath="Main_Control\Main_Control.plcproj" TmcFilePath="Main_Control\Main_Control.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="Main_Control\Main_Control.tmc" TmcHash="{79A1609C-622B-1E09-0A66-2318FD6AF0B2}">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="Main_Control\Main_Control.tmc" TmcHash="{8B002003-2B50-70DE-9036-A134C9A625A6}">
 					<Name>Main_Control Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Vars VarGrpType="1">
@@ -304,6 +304,10 @@ Part 4(Sorting System)]]></Comment>
 						</Var>
 						<Var>
 							<Name>MAIN.Out_Measuring_Bar_Sorting_Axis_Y_Motor_On</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Out_Sortierer_Pluger_Pull_in</Name>
 							<Type>BOOL</Type>
 						</Var>
 					</Vars>

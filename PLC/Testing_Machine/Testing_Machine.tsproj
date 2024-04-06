@@ -38,7 +38,7 @@
 		</System>
 		<Plc>
 			<Project GUID="{7CEC6D2E-42B5-471B-B363-981A4D996A20}" Name="Main_Control" PrjFilePath="Main_Control\Main_Control.plcproj" TmcFilePath="Main_Control\Main_Control.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="Main_Control\Main_Control.tmc" TmcHash="{8B002003-2B50-70DE-9036-A134C9A625A6}">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="Main_Control\Main_Control.tmc" TmcHash="{33DD1DB3-D6A5-9589-DA98-DB9E4BF706EE}">
 					<Name>Main_Control Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Vars VarGrpType="1">
@@ -114,6 +114,10 @@ Part 1(Conveyor 1)	]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
+							<Name>MAIN.Inp_Base_Positions</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
 							<Name>MAIN.Inp_Conveyor_2_Palette_Left_Side</Name>
 							<Comment><![CDATA[Part 2(Conveyor 2)	]]></Comment>
 							<Type>BOOL</Type>
@@ -176,17 +180,17 @@ Part 1(Conveyor 1)	]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>MAIN.Inp_Sortierer_in_Basik_Position</Name>
+							<Name>MAIN.Inp_Sorter_in_Basik_Position</Name>
 							<Comment><![CDATA[Coupler	
 Part 4(Sorting System)]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>MAIN.Inp_Sortierer_Pluger_Above</Name>
+							<Name>MAIN.Inp_Sorter_Plunger_Above</Name>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>MAIN.Inp_Sortierer_Pluger_Below</Name>
+							<Name>MAIN.Inp_Sorter_Plunger_Below</Name>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
@@ -196,6 +200,10 @@ Part 4(Sorting System)]]></Comment>
 						<Var>
 							<Name>MAIN.Inp_Measuring_Bar_Sorting_Axis_Y</Name>
 							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Inp_Form_is_Changed_Button</Name>
+							<Type>BOOL</Type>
 						</Var>
 					</Vars>
 					<Vars VarGrpType="2" AreaNo="1">
@@ -307,7 +315,7 @@ Part 4(Sorting System)]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>MAIN.Out_Sortierer_Pluger_Pull_in</Name>
+							<Name>MAIN.Out_Sorter_Pluger_Pull_in</Name>
 							<Type>BOOL</Type>
 						</Var>
 					</Vars>

@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="EventLogger" Id="{2a670000-1b8d-47c8-867b-df677a6f707e}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK EventLogger
+VAR	PERSISTENT
+	CurrentEventBufferIndex		: INT:=0;
+END_VAR
+VAR CONSTANT
+	MAX_SIZE_OF_EVENT_BUFFER	: INT:=500;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Method Name="AddEvent" Id="{f0ccb861-5161-4635-9f82-570737a680db}">
+      <Declaration><![CDATA[METHOD PUBLIC AddEvent : BOOL
+VAR_INPUT
+	What_happend			: STRING[20];
+	sEventText				: STRING[255];
+	eEventType				: E_EventType;
+	eEventSeverity			: TcEventSeverity;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF NOT isEventBufferFull() THEN
+	CurrentEventBufferIndex:=CurrentEventBufferIndex+1;
+	GVL.EventBuffer[CurrentEventBufferIndex].eEventType:=eEventType;
+	GVL.EventBuffer[CurrentEventBufferIndex].What_happend:=What_happend;
+	GVL.EventBuffer[CurrentEventBufferIndex].sEventText:=sEventText;
+	GVL.EventBuffer[CurrentEventBufferIndex].eEventSeverity:=eEventSeverity;
+	F_UpdateEvent(stEvent:=GVL.EventBuffer[CurrentEventBufferIndex]);
+	AddEvent:=TRUE;
+ELSE 
+	CurrentEventBufferIndex:=0;
+END_IF]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="isEventBufferFull" Id="{42f73c1f-6f32-45af-aa29-e80a7aaf2759}">
+      <Declaration><![CDATA[METHOD PRIVATE isEventBufferFull : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF (CurrentEventBufferIndex+1)>MAX_SIZE_OF_EVENT_BUFFER THEN
+	isEventBufferFull:=TRUE;
+	ELSE isEventBufferFull:=FALSE;
+END_IF]]></ST>
+      </Implementation>
+    </Method>
+    <LineIds Name="EventLogger">
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="EventLogger.AddEvent">
+      <LineId Id="3" Count="9" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="EventLogger.isEventBufferFull">
+      <LineId Id="3" Count="2" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="FB_Time_Counter" Id="{a3874f03-d152-47fc-a645-6126ab6694f9}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Time_Counter
+VAR_INPUT
+	bTimeMeasurementActive: BOOL;
+	tTimeToReach : TIME;
+	bElapsedTimeReset : BOOL;
+END_VAR
+VAR_OUTPUT
+	bPresetTimeReached : BOOL;
+	tElapsedTime : TIME := T#0D0H0M0S0MS;
+	ENO: BOOL; //FB active
+END_VAR
+VAR
+	tTime1 : TIME;
+	tTime2 : TIME;
+	trgTime1RaisingEdge : BOOL;
+	trgTime1FallingEdge : BOOL;
+	tZeit1: TIME;
+	bFlagRaisingEdge: BOOL;
+	bFlagFallingEdge: BOOL;
+	tTimeDifference : TIME;
+	tTimeStampForElapsedTime: TIME;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[trgTime1RaisingEdge := bTimeMeasurementActive AND NOT bFlagRaisingEdge;
+bFlagRaisingEdge := bTimeMeasurementActive;
+
+trgTime1FallingEdge := NOT bElapsedTimeReset AND bFlagFallingEdge;
+bFlagFallingEdge := bElapsedTimeReset;
+
+
+
+IF trgTime1RaisingEdge OR (trgTime1FallingEdge AND bTimeMeasurementActive) THEN 
+	tTime1 := TIME();
+	tTimeDifference := T#0D0H0M0S0MS;
+ELSIF NOT bTimeMeasurementActive THEN
+	tTime1:= T#0D0H0M0S0MS;
+END_IF
+
+IF bTimeMeasurementActive THEN 
+	tTime2:= TIME();
+	ENO := TRUE;
+ELSE	 
+	tTime2:= T#0D0H0M0S0MS;
+	ENO := FALSE;
+END_IF
+
+tTimeDifference := tTime2 - tTime1;
+
+
+
+IF bTimeMeasurementActive = FALSE THEN
+	tTimeStampForElapsedTime := tElapsedTime;
+ELSIF bTimeMeasurementActive = TRUE THEN	
+	tElapsedTime := tTimeStampForElapsedTime + tTimeDifference;
+END_IF
+
+IF bElapsedTimeReset THEN	
+	tElapsedTime := T#0D0H0M0S0MS;
+	tTimeStampForElapsedTime := T#0D0H0M0S0MS;
+	tTimeDifference := T#0D0H0M0S0MS;
+	tTime1 := T#0D0H0M0S0MS;
+	tTime2 := T#0D0H0M0S0MS;
+END_IF
+
+
+
+IF tElapsedTime >= tTimeToReach THEN
+	bPresetTimeReached := TRUE;
+ELSE
+	bPresetTimeReached := FALSE;
+END_IF
+]]></ST>
+    </Implementation>
+    <LineIds Name="FB_Time_Counter">
+      <LineId Id="3" Count="47" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

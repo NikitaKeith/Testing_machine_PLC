@@ -1,102 +1,130 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
   <POU Name="Motor_Sorting" Id="{bf82215d-3dde-493f-ab69-71f13ec01e05}" SpecialFunc="None">
-    <Declaration><![CDATA[FUNCTION_BLOCK Motor_Sorting IMPLEMENTS i_Motor
+    <Declaration><![CDATA[FUNCTION_BLOCK Motor_Sorting
 VAR_INPUT
-	Inp_Conveyor_3_Palette_Right_Side					: BOOL;	
-	Inp_Sortierer_in_Basik_Position						: BOOL;
-	Inp_Sortierer_Pluger_Above							: BOOL;
-	Inp_Sortierer_Pluger_Below							: BOOL;
-	Inp_Measuring_Bar_Sorting_Axis_X					: INT;
-	Inp_Measuring_Bar_Sorting_Axis_Y					: INT;
+	Inp_Conveyor_2_Palette_Right_Side_at_Sorter						: BOOL;	
+	Inp_Sortierer_in_Basic_Position									: BOOL;
+	Inp_Sorter_Plunger_Above										: BOOL;
+	Inp_Sorter_Plunger_Below										: BOOL;
+	Inp_Measuring_Bar_Sorting_Axis_X								: INT;
+	Inp_Measuring_Bar_Sorting_Axis_Y								: INT;
+	Inp_Form_is_Changed_Button										: BOOL;
 END_VAR
 VAR_OUTPUT
-	Out_Sortierer_Pluger_Drive_Up						: BOOL;	
-	Out_Sortierer_Pluger_Drive_Down						: BOOL;	
-	Out_Measuring_Bar_Sorting_Axis_X_Right_Rotation_Motor_On			: BOOL;
-	Out_Measuring_Bar_Sorting_Axis_Y_Right_Rotation_Motor_On			: BOOL;
+	Out_Sorter_Pluger_Drive_Up										: BOOL;	
+	Out_Sorter_Pluger_Drive_Down									: BOOL;	
+	Out_Measuring_Bar_Sorting_Axis_X_Right_Rotation_Motor_On		: BOOL;
+	Out_Measuring_Bar_Sorting_Axis_Y_Right_Rotation_Motor_On		: BOOL;
 	Out_Measuring_Bar_Sorting_Axis_X_Left_Rotation_Motor_On			: BOOL;
 	Out_Measuring_Bar_Sorting_Axis_Y_Left_Rotation_Motor_On			: BOOL;
-	Out_Sortierer_Pluger_Pull_in						: BOOL;	
+	Out_Sorter_Pluger_Pull_in										: BOOL;	
+	Palette_at_Sorter_is_free										: BOOL;
 END_VAR
 VAR
-	positions_init							: Positions_init;
-	Pluger_Below_TON_For_Drive				: TON;
-	i: INT := 1;
-	Measuring_Bar_Sorting_Axis_X_Motor_Above_Sorting_Place:BOOL;
-	Measuring_Bar_Sorting_Axis_Y_Motor_Above_Sorting_Place:BOOL;
-	Measuring_Bar_Sorting_Axis_X_Motor_At_Start_Position: BOOL;
-	Measuring_Bar_Sorting_Axis_Y_Motor_At_Start_Position: BOOL;
-	Part_On_Place: BOOL;
+	positions_init													: Positions_init;
+	Pluger_Below_TON_For_Drive										: TON;
+	Pluger_Below_TON_For_Release									: TON;
+	i																: INT := 1;
+	Measuring_Bar_Sorting_Axis_X_Motor_Above_Sorting_Place			: BOOL;
+	Measuring_Bar_Sorting_Axis_Y_Motor_Above_Sorting_Place			: BOOL;
+	Measuring_Bar_Sorting_Axis_X_Motor_At_Start_Position			: BOOL;
+	Measuring_Bar_Sorting_Axis_Y_Motor_At_Start_Position			: BOOL;
+	Part_On_Place													: BOOL;
+	Part_on_Palette_at_Sorter										: BOOL;
+	Part_Is_taken													: BOOL;
+	Form_for_parts_is_FULL: BOOL;
 END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[positions_init();
-Pluger_Below_TON_For_Drive(IN:= Inp_Sortierer_Pluger_Below, PT:= T#2S, Q=> , ET=> );
+Pluger_Below_TON_For_Drive(IN:= The_Sorter_is_ready_for_sorting() AND Inp_Sorter_Plunger_Below, PT:= T#2S);
+Pluger_Below_TON_For_Release(IN:= Measuring_Bar_Sorting_Axis_X_Motor_Above_Sorting_Place 
+	AND Measuring_Bar_Sorting_Axis_Y_Motor_Above_Sorting_Place AND Part_On_Place AND Inp_Sorter_Plunger_Below, PT:= T#2S);
 
-
-
-IF Inp_Conveyor_3_Palette_Right_Side 
-	AND Measuring_Bar_Sorting_Axis_X_Motor_At_Start_Position 
-	AND Measuring_Bar_Sorting_Axis_Y_Motor_At_Start_Position
-	THEN Out_Sortierer_Pluger_Drive_Down:=TRUE;
+//If Form is full
+IF i<=9 THEN Form_for_parts_is_FULL:=TRUE;i:=0;	
+END_IF
+IF Inp_Form_is_Changed_Button AND i<9
+	THEN Form_for_parts_is_FULL:=FALSE;
 END_IF
 
-IF Inp_Sortierer_Pluger_Below
-	THEN Out_Sortierer_Pluger_Pull_in:=TRUE;
+//Step 1 : Plunger goes down for a Part
+IF The_Sorter_is_ready_for_sorting() AND Inp_Sorter_Plunger_Above AND Part_on_Palette_at_Sorter AND NOT Form_for_parts_is_FULL
+	THEN Out_Sorter_Pluger_Drive_Up:=FALSE; 
+Out_Sorter_Pluger_Drive_Down:=TRUE;
+Part_On_Place:=FALSE;
 END_IF
 
-IF Pluger_Below_TON_For_Drive.Q
+//Step 2 : Plunger takes a Part
+IF The_Sorter_is_ready_for_sorting() AND Inp_Sorter_Plunger_Below
+	THEN Out_Sorter_Pluger_Pull_in:=TRUE; Part_on_Palette_at_Sorter:=FALSE;
+END_IF
+
+//Step 3 : Plunger is waiting for a 2 Seconds and drives up
+IF The_Sorter_is_ready_for_sorting() AND Pluger_Below_TON_For_Drive.Q
 	THEN 
-Out_Sortierer_Pluger_Drive_Down:=FALSE;
-Out_Sortierer_Pluger_Drive_Up:=TRUE;
+Out_Sorter_Pluger_Drive_Down:=FALSE;
+Out_Sorter_Pluger_Drive_Up:=TRUE;
+Part_Is_taken:=TRUE;
 END_IF
 
-IF Inp_Sortierer_Pluger_Above
-	THEN to_Parts_Place();
+//Step 4 : Plunger goes to Parts place
+IF The_Sorter_is_ready_for_sorting() AND Inp_Sorter_Plunger_Above AND Part_Is_taken
+	THEN to_Parts_Place(); Palette_at_Sorter_is_free:=TRUE;
 END_IF
 
-IF Measuring_Bar_Sorting_Axis_X_Motor_Above_Sorting_Place and Measuring_Bar_Sorting_Axis_Y_Motor_Above_Sorting_Place
-	THEN 
-	Out_Sortierer_Pluger_Drive_Up:=FALSE;
-	Out_Sortierer_Pluger_Drive_Down:=TRUE;	
-END_IF
-
+//Step 5 : Plunger puts Part to place
 IF Measuring_Bar_Sorting_Axis_X_Motor_Above_Sorting_Place 
-	AND Measuring_Bar_Sorting_Axis_Y_Motor_Above_Sorting_Place AND Inp_Sortierer_Pluger_Below
+AND Measuring_Bar_Sorting_Axis_Y_Motor_Above_Sorting_Place
+	AND Inp_Sorter_Plunger_Above
 	THEN 
-	Out_Sortierer_Pluger_Pull_in:=FALSE;
+	Out_Sorter_Pluger_Drive_Up:=FALSE;
+	Out_Sorter_Pluger_Drive_Down:=TRUE;	
+END_IF
+
+//Step 6 : Plunger releases Part
+IF Measuring_Bar_Sorting_Axis_X_Motor_Above_Sorting_Place 
+	AND Measuring_Bar_Sorting_Axis_Y_Motor_Above_Sorting_Place AND Inp_Sorter_Plunger_Below
+	THEN 
+	Out_Sorter_Pluger_Pull_in:=FALSE;
 	Part_On_Place:=TRUE;
 END_IF
 
-IF Measuring_Bar_Sorting_Axis_X_Motor_Above_Sorting_Place 
-	AND Measuring_Bar_Sorting_Axis_Y_Motor_Above_Sorting_Place AND Part_On_Place
+//Step 7 : Plunger releases Part
+IF Pluger_Below_TON_For_Release.Q
 	THEN 
-	Out_Sortierer_Pluger_Drive_Down:=FALSE;
-	Out_Sortierer_Pluger_Drive_Up:=TRUE;
+	Out_Sorter_Pluger_Drive_Down:=FALSE;
+	Out_Sorter_Pluger_Drive_Up:=TRUE;
+	Part_Is_taken:=FALSE;
 END_IF
 
+//Step 7 : Plunger releases Part
 IF Measuring_Bar_Sorting_Axis_X_Motor_Above_Sorting_Place 
-	AND Measuring_Bar_Sorting_Axis_Y_Motor_Above_Sorting_Place AND Inp_Sortierer_Pluger_Above AND Part_On_Place //?
+AND Measuring_Bar_Sorting_Axis_Y_Motor_Above_Sorting_Place
+	AND Inp_Sorter_Plunger_Above
+ AND Part_On_Place 
+and Part_Is_taken=FALSE
 	THEN 
 to_Start();
 END_IF]]></ST>
     </Implementation>
-    <Method Name="Motor_Off" Id="{78b33b82-bbf8-4fba-8309-b4dc65bf146b}">
-      <Declaration><![CDATA[{warning 'add method implementation '}
-METHOD Motor_Off : BOOL
+    <Method Name="The_Sorter_is_ready_for_sorting" Id="{6482a0e9-f631-4496-a3c5-89d8235978d6}">
+      <Declaration><![CDATA[METHOD PRIVATE The_Sorter_is_ready_for_sorting : BOOL
+VAR_INPUT
+END_VAR
 ]]></Declaration>
       <Implementation>
-        <ST><![CDATA[]]></ST>
-      </Implementation>
-    </Method>
-    <Method Name="Motor_On" Id="{c0e37484-f439-484a-8a9f-18d906e2726d}">
-      <Declaration><![CDATA[{warning 'add method implementation '}
-METHOD Motor_On : BOOL
-]]></Declaration>
-      <Implementation>
-        <ST><![CDATA[IF Motor_On 
-	THEN Out_Measuring_Bar_Sorting_Axis_X_Motor_On:=TRUE;
+        <ST><![CDATA[IF 	Measuring_Bar_Sorting_Axis_X_Motor_At_Start_Position AND
+	Measuring_Bar_Sorting_Axis_Y_Motor_At_Start_Position
+AND Inp_Conveyor_2_Palette_Right_Side_at_Sorter
+THEN The_Sorter_is_ready_for_sorting:=TRUE;
+END_IF
+
+IF 	Measuring_Bar_Sorting_Axis_X_Motor_At_Start_Position =FALSE OR
+	Measuring_Bar_Sorting_Axis_Y_Motor_At_Start_Position =FALSE
+OR Inp_Conveyor_2_Palette_Right_Side_at_Sorter  =FALSE
+THEN The_Sorter_is_ready_for_sorting:=FALSE;
 END_IF]]></ST>
       </Implementation>
     </Method>
@@ -104,7 +132,8 @@ END_IF]]></ST>
       <Implementation>
         <ST><![CDATA[FOR i :=1 TO 9 DO
 	IF Inp_Measuring_Bar_Sorting_Axis_X < positions_init.Current_Position[i].Coordinate_X_Axis
-		THEN Out_Measuring_Bar_Sorting_Axis_X_Right_Rotation_Motor_On:=TRUE; 
+		THEN Out_Measuring_Bar_Sorting_Axis_X_Right_Rotation_Motor_On:=TRUE;
+Measuring_Bar_Sorting_Axis_X_Motor_Above_Sorting_Place:=FALSE; 
 	END_IF
 	IF Inp_Measuring_Bar_Sorting_Axis_X >= positions_init.Current_Position[i].Coordinate_X_Axis
 		THEN Out_Measuring_Bar_Sorting_Axis_X_Right_Rotation_Motor_On:=FALSE; 
@@ -113,6 +142,7 @@ END_IF]]></ST>
 	
 		IF Inp_Measuring_Bar_Sorting_Axis_Y < positions_init.Current_Position[i].Coordinate_Y_Axis
 		THEN Out_Measuring_Bar_Sorting_Axis_Y_Right_Rotation_Motor_On:=TRUE;
+		Measuring_Bar_Sorting_Axis_X_Motor_Above_Sorting_Place:=FALSE; 
 	END_IF
 	IF Inp_Measuring_Bar_Sorting_Axis_Y >= positions_init.Current_Position[i].Coordinate_Y_Axis
 		THEN Out_Measuring_Bar_Sorting_Axis_Y_Right_Rotation_Motor_On:=FALSE; 
@@ -141,60 +171,39 @@ END_FOR]]></ST>
       </Implementation>
     </Action>
     <LineIds Name="Motor_Sorting">
-      <LineId Id="9" Count="0" />
-      <LineId Id="37" Count="0" />
-      <LineId Id="70" Count="0" />
-      <LineId Id="69" Count="0" />
-      <LineId Id="17" Count="0" />
-      <LineId Id="16" Count="0" />
-      <LineId Id="128" Count="1" />
-      <LineId Id="20" Count="1" />
-      <LineId Id="24" Count="0" />
-      <LineId Id="23" Count="0" />
-      <LineId Id="30" Count="1" />
-      <LineId Id="34" Count="0" />
-      <LineId Id="33" Count="0" />
-      <LineId Id="38" Count="0" />
-      <LineId Id="43" Count="1" />
-      <LineId Id="39" Count="0" />
-      <LineId Id="46" Count="0" />
-      <LineId Id="45" Count="0" />
-      <LineId Id="47" Count="1" />
-      <LineId Id="87" Count="0" />
-      <LineId Id="86" Count="0" />
-      <LineId Id="88" Count="0" />
-      <LineId Id="92" Count="0" />
-      <LineId Id="90" Count="0" />
-      <LineId Id="89" Count="0" />
-      <LineId Id="94" Count="1" />
-      <LineId Id="99" Count="0" />
-      <LineId Id="96" Count="0" />
-      <LineId Id="108" Count="1" />
-      <LineId Id="93" Count="0" />
-      <LineId Id="112" Count="3" />
-      <LineId Id="118" Count="0" />
-      <LineId Id="117" Count="0" />
-      <LineId Id="111" Count="0" />
-      <LineId Id="75" Count="0" />
-      <LineId Id="119" Count="2" />
-      <LineId Id="123" Count="0" />
+      <LineId Id="853" Count="14" />
+      <LineId Id="921" Count="1" />
+      <LineId Id="868" Count="21" />
+      <LineId Id="917" Count="0" />
+      <LineId Id="890" Count="18" />
+      <LineId Id="915" Count="0" />
+      <LineId Id="909" Count="0" />
+      <LineId Id="916" Count="0" />
+      <LineId Id="910" Count="0" />
+      <LineId Id="918" Count="1" />
+      <LineId Id="911" Count="0" />
+      <LineId Id="920" Count="0" />
+      <LineId Id="923" Count="0" />
+      <LineId Id="913" Count="1" />
       <LineId Id="74" Count="0" />
     </LineIds>
-    <LineIds Name="Motor_Sorting.Motor_Off">
-      <LineId Id="4" Count="0" />
-    </LineIds>
-    <LineIds Name="Motor_Sorting.Motor_On">
-      <LineId Id="6" Count="0" />
-      <LineId Id="11" Count="1" />
+    <LineIds Name="Motor_Sorting.The_Sorter_is_ready_for_sorting">
+      <LineId Id="5" Count="4" />
+      <LineId Id="11" Count="4" />
+      <LineId Id="10" Count="0" />
     </LineIds>
     <LineIds Name="Motor_Sorting.to_Parts_Place">
       <LineId Id="1" Count="1" />
-      <LineId Id="4" Count="1" />
+      <LineId Id="4" Count="0" />
+      <LineId Id="18" Count="0" />
+      <LineId Id="5" Count="0" />
       <LineId Id="7" Count="1" />
       <LineId Id="17" Count="0" />
       <LineId Id="6" Count="0" />
       <LineId Id="9" Count="0" />
-      <LineId Id="11" Count="5" />
+      <LineId Id="11" Count="1" />
+      <LineId Id="19" Count="0" />
+      <LineId Id="13" Count="3" />
       <LineId Id="10" Count="0" />
       <LineId Id="3" Count="0" />
     </LineIds>
