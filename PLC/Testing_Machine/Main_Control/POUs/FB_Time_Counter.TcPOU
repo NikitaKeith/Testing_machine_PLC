@@ -3,7 +3,7 @@
   <POU Name="FB_Time_Counter" Id="{a3874f03-d152-47fc-a645-6126ab6694f9}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION_BLOCK FB_Time_Counter
 VAR_INPUT
-	bTimeMeasurementActive: BOOL;
+	bTimeMeasurementActive: BOOL; 
 	tTimeToReach : TIME;
 	bElapsedTimeReset : BOOL;
 END_VAR
@@ -14,7 +14,7 @@ VAR_OUTPUT
 END_VAR
 VAR
 	tTime1 : TIME;
-	tTime2 : TIME;
+	tTime2 : TIME;	
 	trgTime1RaisingEdge : BOOL;
 	trgTime1FallingEdge : BOOL;
 	tZeit1: TIME;
@@ -30,7 +30,6 @@ bFlagRaisingEdge := bTimeMeasurementActive;
 
 trgTime1FallingEdge := NOT bElapsedTimeReset AND bFlagFallingEdge;
 bFlagFallingEdge := bElapsedTimeReset;
-
 
 
 IF trgTime1RaisingEdge OR (trgTime1FallingEdge AND bTimeMeasurementActive) THEN 
@@ -49,8 +48,6 @@ ELSE
 END_IF
 
 tTimeDifference := tTime2 - tTime1;
-
-
 
 IF bTimeMeasurementActive = FALSE THEN
 	tTimeStampForElapsedTime := tElapsedTime;
@@ -76,7 +73,9 @@ END_IF
 ]]></ST>
     </Implementation>
     <LineIds Name="FB_Time_Counter">
-      <LineId Id="3" Count="47" />
+      <LineId Id="3" Count="4" />
+      <LineId Id="9" Count="17" />
+      <LineId Id="29" Count="21" />
       <LineId Id="2" Count="0" />
     </LineIds>
   </POU>
