@@ -4,6 +4,7 @@
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL PERSISTENT
 	EventBuffer 					: ARRAY [1..500] OF ST_Event;
+	Part_is_Sorted					: BOOL;
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

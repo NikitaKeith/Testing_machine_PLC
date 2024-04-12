@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
   <POU Name="Conveyor_2" Id="{836f90dc-32ea-4a76-a49d-029d93287afc}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION_BLOCK Conveyor_2
 VAR_INPUT
@@ -8,8 +8,8 @@ VAR_INPUT
 	Inp_Palette_in_front_of_Tester							: BOOL;
 	Inp_Stopper_Below										: BOOL;
 	Inp_Stopper_Above										: BOOL;
-	Inp_Feedback_from_Tester								: BOOL;
-	Inp_Reserve_1											: BOOL;
+	Inp_Feedback_from_Tester_GOOD_Part						: BOOL;
+	Inp_Feedback_from_Tester_BAD_Part						: BOOL;
 	Inp_Motor_2_Protection_Switch_is_OK						: BOOL;
 	
 	Inp_Conveyor_2_Pallete_Slider_In						: BOOL;
@@ -21,15 +21,92 @@ VAR_OUTPUT
 	Out_Stopper_Drive_Down									: BOOL;
 	Out_Conveyor_2_Pallete_Slider_Drive_In					: BOOL;
 	Out_Conveyor_2_Pallete_Slider_Drive_Out					: BOOL;
+	M_Conveyor_2_is_ready_to_take_Part_From_Conveyor_2		: BOOL;
+	M_Part_is_ready_for_Test								: BOOL;
+	M_Part_is_ready_for_sorting: BOOL;
 END_VAR
 VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[]]></ST>
+      <ST><![CDATA[IF 	Inp_Conveyor_2_Palette_Left_Side 
+	AND NOT Inp_Conveyor_2_Palette_Right_Side 
+	AND NOT Inp_Palette_in_front_of_Tester 
+	AND Inp_Stopper_Below 
+	AND Inp_Conveyor_2_Pallete_Slider_In 
+	AND NOT Out_Conveyor_2_Motor_On
+	THEN M_Conveyor_2_is_ready_to_take_Part_From_Conveyor_2:=TRUE;
+END_IF
+
+IF 	NOT Inp_Conveyor_2_Palette_Left_Side 
+	OR  Inp_Conveyor_2_Palette_Right_Side 
+	OR Inp_Palette_in_front_of_Tester 
+	OR NOT Inp_Stopper_Below 
+	OR NOT Inp_Conveyor_2_Pallete_Slider_In 
+	OR Out_Conveyor_2_Motor_On
+	THEN M_Conveyor_2_is_ready_to_take_Part_From_Conveyor_2:=FALSE;
+END_IF
+
+IF Main.conveyor_1.M_Part_is_shipped_on_the_Conveyor_2 
+	THEN  Out_Conveyor_2_Motor_On:=TRUE;
+END_IF
+
+IF Inp_Palette_in_front_of_Tester
+	THEN  Out_Conveyor_2_Motor_On:=FALSE;
+END_IF
+
+IF Inp_Palette_in_front_of_Tester AND Out_Conveyor_2_Motor_On=FALSE
+	THEN Out_Stopper_Drive_Down:=FALSE;
+		Out_Stopper_Drive_Up:=TRUE;
+END_IF
+
+IF Inp_Stopper_Above AND NOT Inp_Feedback_from_Tester_GOOD_Part AND NOT Inp_Feedback_from_Tester_BAD_Part
+	THEN M_Part_is_ready_for_Test:=TRUE;
+END_IF
+
+IF Inp_Stopper_Above AND (Inp_Feedback_from_Tester_GOOD_Part OR Inp_Feedback_from_Tester_BAD_Part)
+	THEN Out_Stopper_Drive_Up:=FALSE; Out_Stopper_Drive_Down:=TRUE;
+END_IF
+
+IF Inp_Stopper_Below AND (Inp_Feedback_from_Tester_GOOD_Part OR Inp_Feedback_from_Tester_BAD_Part)
+	THEN Out_Conveyor_2_Motor_On:=TRUE;
+END_IF
+
+IF Inp_Conveyor_2_Palette_Right_Side AND (Inp_Feedback_from_Tester_GOOD_Part OR Inp_Feedback_from_Tester_BAD_Part)
+	THEN Out_Conveyor_2_Motor_On:=FALSE;
+		M_Part_is_ready_for_sorting:=TRUE;
+END_IF
+
+IF Main.conveyor_3.Out_Conveyor_3_Motor_On=FALSE 
+	AND NOT Main.conveyor_3.Inp_Conveyor_3_Palette_Left_Side 
+	AND NOT Main.conveyor_3.Inp_Conveyor_3_Palette_Right_Side
+	AND Main.conveyor_3.Inp_Conveyor_3_Pallete_Slider_In
+	AND GVL.Part_is_Sorted
+	THEN 
+	Out_Conveyor_2_Pallete_Slider_Drive_In:=FALSE;
+	Out_Conveyor_2_Pallete_Slider_Drive_Out:=TRUE;
+END_IF
+
+IF Inp_Conveyor_2_Pallete_Slider_Out
+	THEN Out_Conveyor_2_Pallete_Slider_Drive_Out:=FALSE; Out_Conveyor_2_Pallete_Slider_Drive_In:=TRUE;
+END_IF]]></ST>
     </Implementation>
     <LineIds Name="Conveyor_2">
-      <LineId Id="9" Count="0" />
+      <LineId Id="208" Count="45" />
+      <LineId Id="81" Count="0" />
+      <LineId Id="255" Count="0" />
+      <LineId Id="254" Count="0" />
+      <LineId Id="260" Count="0" />
+      <LineId Id="259" Count="0" />
+      <LineId Id="256" Count="0" />
+      <LineId Id="261" Count="0" />
+      <LineId Id="258" Count="0" />
+      <LineId Id="267" Count="0" />
+      <LineId Id="262" Count="0" />
+      <LineId Id="257" Count="0" />
+      <LineId Id="264" Count="0" />
+      <LineId Id="263" Count="0" />
+      <LineId Id="265" Count="1" />
     </LineIds>
   </POU>
 </TcPlcObject>

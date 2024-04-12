@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
   <POU Name="Motor_Sorting" Id="{bf82215d-3dde-493f-ab69-71f13ec01e05}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION_BLOCK Motor_Sorting
 VAR_INPUT
@@ -45,15 +45,17 @@ Pluger_Below_TON_For_Release(IN:= Measuring_Bar_Sorting_Axis_X_Motor_Above_Sorti
 //If Form is full
 IF i<=9 THEN Form_for_parts_is_FULL:=TRUE;i:=0;	
 END_IF
+
 IF Inp_Form_is_Changed_Button AND i<9
 	THEN Form_for_parts_is_FULL:=FALSE;
 END_IF
 
 //Step 1 : Plunger goes down for a Part
-IF The_Sorter_is_ready_for_sorting() AND Inp_Sorter_Plunger_Above AND Part_on_Palette_at_Sorter AND NOT Form_for_parts_is_FULL
+IF The_Sorter_is_ready_for_sorting() AND Main.conveyor_2.M_Part_is_ready_for_sorting 
+AND Inp_Sorter_Plunger_Above AND Part_on_Palette_at_Sorter AND NOT Form_for_parts_is_FULL 
 	THEN Out_Sorter_Pluger_Drive_Up:=FALSE; 
-Out_Sorter_Pluger_Drive_Down:=TRUE;
-Part_On_Place:=FALSE;
+	Out_Sorter_Pluger_Drive_Down:=TRUE;
+	Part_On_Place:=FALSE;
 END_IF
 
 //Step 2 : Plunger takes a Part
@@ -64,9 +66,9 @@ END_IF
 //Step 3 : Plunger is waiting for a 2 Seconds and drives up
 IF The_Sorter_is_ready_for_sorting() AND Pluger_Below_TON_For_Drive.Q
 	THEN 
-Out_Sorter_Pluger_Drive_Down:=FALSE;
-Out_Sorter_Pluger_Drive_Up:=TRUE;
-Part_Is_taken:=TRUE;
+	Out_Sorter_Pluger_Drive_Down:=FALSE;
+	Out_Sorter_Pluger_Drive_Up:=TRUE;
+	Part_Is_taken:=TRUE;
 END_IF
 
 //Step 4 : Plunger goes to Parts place
@@ -76,7 +78,7 @@ END_IF
 
 //Step 5 : Plunger puts Part to place
 IF Measuring_Bar_Sorting_Axis_X_Motor_Above_Sorting_Place 
-AND Measuring_Bar_Sorting_Axis_Y_Motor_Above_Sorting_Place
+	AND Measuring_Bar_Sorting_Axis_Y_Motor_Above_Sorting_Place
 	AND Inp_Sorter_Plunger_Above
 	THEN 
 	Out_Sorter_Pluger_Drive_Up:=FALSE;
@@ -99,14 +101,15 @@ IF Pluger_Below_TON_For_Release.Q
 	Part_Is_taken:=FALSE;
 END_IF
 
-//Step 7 : Plunger releases Part
+//Step 7 : Sorter goes to the start position
 IF Measuring_Bar_Sorting_Axis_X_Motor_Above_Sorting_Place 
-AND Measuring_Bar_Sorting_Axis_Y_Motor_Above_Sorting_Place
+	AND Measuring_Bar_Sorting_Axis_Y_Motor_Above_Sorting_Place
 	AND Inp_Sorter_Plunger_Above
- AND Part_On_Place 
-and Part_Is_taken=FALSE
+ 	AND Part_On_Place 
+	AND Part_Is_taken=FALSE
 	THEN 
-to_Start();
+	to_Start();
+	GVL.Part_is_Sorted:=TRUE;
 END_IF]]></ST>
     </Implementation>
     <Method Name="The_Sorter_is_ready_for_sorting" Id="{6482a0e9-f631-4496-a3c5-89d8235978d6}">
@@ -171,7 +174,11 @@ END_FOR]]></ST>
       </Implementation>
     </Action>
     <LineIds Name="Motor_Sorting">
-      <LineId Id="853" Count="14" />
+      <LineId Id="853" Count="7" />
+      <LineId Id="959" Count="0" />
+      <LineId Id="861" Count="5" />
+      <LineId Id="958" Count="0" />
+      <LineId Id="867" Count="0" />
       <LineId Id="921" Count="1" />
       <LineId Id="868" Count="21" />
       <LineId Id="917" Count="0" />
@@ -185,6 +192,7 @@ END_FOR]]></ST>
       <LineId Id="920" Count="0" />
       <LineId Id="923" Count="0" />
       <LineId Id="913" Count="1" />
+      <LineId Id="960" Count="0" />
       <LineId Id="74" Count="0" />
     </LineIds>
     <LineIds Name="Motor_Sorting.The_Sorter_is_ready_for_sorting">

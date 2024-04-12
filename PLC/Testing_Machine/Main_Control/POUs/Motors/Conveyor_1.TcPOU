@@ -39,10 +39,12 @@ VAR_OUTPUT
 	Out_Crane_Drive_Up										 : BOOL;
 	Out_Crane_Drive_Down									 : BOOL;
 	Out_Crane_Take_a_Part									 : BOOL;
+	M_Part_is_shipped_on_the_Conveyor_2						 : BOOL;
 END_VAR
 VAR
 	TON_Plunger_Parts_Container_1Sec_open					 : TON;
-	M_Part_is_Taken_by_Crane								 : BOOL;
+	M_Part_Loading											 : BOOL;
+	M_Conveyor_1_is_ready_to_ship_on_Conveyor_2				 : BOOL;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -60,141 +62,88 @@ IF TON_Plunger_Parts_Container_1Sec_open.Q
 	Out_Plunger_Parts_Container_Drive_Out:=TRUE;
 END_IF
 
-IF Inp_Part_On_Conveyor_1
+IF Inp_Part_On_Conveyor_1 AND Inp_Plunger_Parts_Container_Out
 	THEN 
 	Out_Conveyor_1_Motor_On:=TRUE;
-	Out_Plunger_Parts_Container_Drive_Out:=FALSE;
-	Out_Plunger_Parts_Container_Drive_In:=TRUE;
+	Part_is_shipped_on_the_Conveyor_2:=FALSE;
 END_IF
 
 IF Out_Conveyor_1_Motor_On AND Inp_Part_in_front_of_Parts_Alignment
 	THEN 
 	Out_Plunger_Parts_Alignment_Left_Drive_In			  	 :=FALSE;
+	Out_Plunger_Parts_Alignment_Right_Drive_In			 	 :=FALSE;
 	Out_Plunger_Parts_Alignment_Left_Drive_Out				 :=TRUE;
-	Out_Plunger_Parts_Alignment_Right_Drive_In			 	 :=FALSE;		
-	Out_Plunger_Parts_Alignment_Right_Drive_Out				 :=TRUE;
 	Out_Plunger_Parts_Alignment_Above_Drive_In				 :=FALSE;	
+	Out_Plunger_Parts_Alignment_Right_Drive_Out				 :=TRUE;	
 	Out_Plunger_Parts_Alignment_Above_Drive_Out				 :=TRUE;
 END_IF
 
 IF Inp_Part_in_front_of_Crane AND Inp_Crane_Above
 	THEN
-	Out_Plunger_Parts_Alignment_Left_Drive_In			 	 :=TRUE;
+	Out_Conveyor_1_Motor_On:=FALSE;
 	Out_Plunger_Parts_Alignment_Left_Drive_Out				 :=FALSE;
-	Out_Plunger_Parts_Alignment_Right_Drive_In			 	 :=TRUE;		
 	Out_Plunger_Parts_Alignment_Right_Drive_Out				 :=FALSE;
-	Out_Plunger_Parts_Alignment_Above_Drive_In				 :=TRUE;	
 	Out_Plunger_Parts_Alignment_Above_Drive_Out				 :=FALSE;
+	Out_Plunger_Parts_Alignment_Left_Drive_In			 	 :=TRUE;
+	Out_Plunger_Parts_Alignment_Right_Drive_In			 	 :=TRUE;		
+	Out_Plunger_Parts_Alignment_Above_Drive_In				 :=TRUE;	
+	M_Conveyor_1_is_ready_to_ship_on_Conveyor_2				 :=TRUE;	
+END_IF
+
+IF M_Conveyor_1_is_ready_to_ship_on_Conveyor_2 AND Main.conveyor_2.M_Conveyor_2_is_ready_to_take_Part_From_Conveyor_2
+	THEN
 	Out_Crane_Drive_Up:=FALSE;
 	Out_Crane_Drive_Down:=TRUE;
 END_IF
 
-IF Inp_Part_in_front_of_Crane AND Inp_Crane_Below AND Inp_Crane_In
+IF Inp_Part_in_front_of_Crane AND Inp_Crane_Below AND Inp_Crane_In AND NOT Out_Crane_Take_a_Part
 	THEN 
 	Out_Crane_Take_a_Part:=TRUE;
-	M_Part_is_Taken_by_Crane:=TRUE;
+	M_Part_Loading:=TRUE;
 END_IF	
 
-IF M_Part_is_Taken_by_Crane
+IF Out_Crane_Take_a_Part AND Inp_Crane_Below AND Inp_Crane_In AND M_Part_Loading
 	THEN 
 	Out_Crane_Drive_Down:=FALSE; 
 	Out_Crane_Drive_Up:=TRUE;
 END_IF
 
-IF M_Part_is_Taken_by_Crane AND Inp_Crane_Above	AND Inp_Crane_In
+IF Out_Crane_Take_a_Part AND Inp_Crane_Above AND Inp_Crane_In AND M_Part_Loading
 	THEN 
 	Out_Crane_Drive_In:=FALSE;
 	Out_Crane_Drive_Out:=TRUE;
 END_IF
 
-IF M_Part_is_Taken_by_Crane AND Inp_Crane_Above	AND Inp_Crane_Out
+IF Out_Crane_Take_a_Part AND Inp_Crane_Above AND Inp_Crane_Out AND M_Part_Loading
 	THEN 		
 	Out_Crane_Drive_Up:=FALSE;
 	Out_Crane_Drive_Down:=TRUE;
 END_IF
 
-IF M_Part_is_Taken_by_Crane AND Inp_Crane_Below	AND Inp_Crane_Out
+IF Out_Crane_Take_a_Part AND Inp_Crane_Below AND Inp_Crane_Out AND M_Part_Loading
 	THEN	
 	Out_Crane_Take_a_Part:=FALSE;
-	M_Part_is_Taken_by_Crane:=FALSE;
+	Out_Crane_Take_a_Part:=FALSE;
 END_IF
 
-IF NOT M_Part_is_Taken_by_Crane AND Inp_Crane_Below	AND Inp_Crane_Out
+IF NOT Out_Crane_Take_a_Part AND Inp_Crane_Below AND Inp_Crane_Out AND M_Part_Loading
 	THEN	
 	Out_Crane_Drive_Down:=FALSE; 
 	Out_Crane_Drive_Up:=TRUE;
 END_IF
 
-IF NOT M_Part_is_Taken_by_Crane AND Inp_Crane_Above	AND Inp_Crane_Out
+IF NOT Out_Crane_Take_a_Part AND Inp_Crane_Above	AND Inp_Crane_Out
 	THEN	
 	Out_Crane_Drive_Out:=FALSE;
 	Out_Crane_Drive_In:=TRUE;
-END_IF
-]]></ST>
+	M_Part_is_shipped_on_the_Conveyor_2:=TRUE;
+	M_Conveyor_1_is_ready_to_ship_on_Conveyor_2:=FALSE;
+	M_Part_Loading:=FALSE;
+END_IF]]></ST>
     </Implementation>
     <LineIds Name="Conveyor_1">
-      <LineId Id="55" Count="1" />
-      <LineId Id="9" Count="0" />
-      <LineId Id="53" Count="0" />
-      <LineId Id="50" Count="0" />
-      <LineId Id="52" Count="0" />
-      <LineId Id="51" Count="0" />
-      <LineId Id="58" Count="0" />
-      <LineId Id="57" Count="0" />
-      <LineId Id="59" Count="0" />
-      <LineId Id="61" Count="1" />
-      <LineId Id="60" Count="0" />
-      <LineId Id="64" Count="0" />
-      <LineId Id="63" Count="0" />
-      <LineId Id="65" Count="0" />
-      <LineId Id="190" Count="0" />
-      <LineId Id="114" Count="1" />
-      <LineId Id="66" Count="0" />
-      <LineId Id="68" Count="0" />
-      <LineId Id="67" Count="0" />
-      <LineId Id="110" Count="0" />
-      <LineId Id="124" Count="4" />
-      <LineId Id="113" Count="0" />
-      <LineId Id="111" Count="0" />
-      <LineId Id="130" Count="0" />
-      <LineId Id="129" Count="0" />
-      <LineId Id="131" Count="0" />
-      <LineId Id="134" Count="4" />
-      <LineId Id="133" Count="0" />
-      <LineId Id="165" Count="0" />
-      <LineId Id="141" Count="0" />
-      <LineId Id="132" Count="0" />
-      <LineId Id="162" Count="0" />
-      <LineId Id="160" Count="1" />
-      <LineId Id="164" Count="0" />
-      <LineId Id="159" Count="0" />
-      <LineId Id="163" Count="0" />
-      <LineId Id="144" Count="0" />
-      <LineId Id="143" Count="0" />
-      <LineId Id="145" Count="0" />
-      <LineId Id="188" Count="1" />
-      <LineId Id="146" Count="0" />
-      <LineId Id="149" Count="2" />
-      <LineId Id="157" Count="1" />
-      <LineId Id="148" Count="0" />
-      <LineId Id="153" Count="2" />
-      <LineId Id="187" Count="0" />
-      <LineId Id="166" Count="0" />
-      <LineId Id="152" Count="0" />
-      <LineId Id="168" Count="0" />
-      <LineId Id="167" Count="0" />
-      <LineId Id="169" Count="0" />
-      <LineId Id="186" Count="0" />
-      <LineId Id="171" Count="0" />
-      <LineId Id="170" Count="0" />
-      <LineId Id="173" Count="3" />
-      <LineId Id="185" Count="0" />
-      <LineId Id="172" Count="0" />
-      <LineId Id="179" Count="2" />
-      <LineId Id="184" Count="0" />
-      <LineId Id="183" Count="0" />
+      <LineId Id="258" Count="90" />
       <LineId Id="178" Count="0" />
-      <LineId Id="147" Count="0" />
     </LineIds>
   </POU>
 </TcPlcObject>
