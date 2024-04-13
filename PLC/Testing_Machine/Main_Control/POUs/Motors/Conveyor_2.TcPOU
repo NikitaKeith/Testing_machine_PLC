@@ -23,7 +23,7 @@ VAR_OUTPUT
 	Out_Conveyor_2_Pallete_Slider_Drive_Out					: BOOL;
 	M_Conveyor_2_is_ready_to_take_Part_From_Conveyor_2		: BOOL;
 	M_Part_is_ready_for_Test								: BOOL;
-	M_Part_is_ready_for_sorting: BOOL;
+	M_Part_is_ready_for_sorting								: BOOL;
 END_VAR
 VAR
 END_VAR
@@ -47,7 +47,7 @@ IF 	NOT Inp_Conveyor_2_Palette_Left_Side
 	THEN M_Conveyor_2_is_ready_to_take_Part_From_Conveyor_2:=FALSE;
 END_IF
 
-IF Main.conveyor_1.M_Part_is_shipped_on_the_Conveyor_2 
+IF Main.conveyor_1.M_Part_is_shipped_on_the_Conveyor_2 AND NOT Inp_Conveyor_2_Palette_Right_Side
 	THEN  Out_Conveyor_2_Motor_On:=TRUE;
 END_IF
 

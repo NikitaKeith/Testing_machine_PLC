@@ -442,8 +442,8 @@
         }
     },
     "PERMESSAGEDEFLATEENABLED": true,
-    "PROJECTNAME": "",
-    "PROJECTVERSION": "",
+    "PROJECTNAME": "HMI_Testing_Machine",
+    "PROJECTVERSION": "1.0.0.0",
     "REMOTESERVERS": {},
     "REMOTESERVERS_CERTIFICATES": [],
     "REQUIREAUTH": 0,
@@ -2508,6 +2508,40 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.MAIN.conveyor_1.Start_Button": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::MAIN::conveyor_1::Start_Button",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "propertyOrder": 19
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.conveyor_1.Stop_Button": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::MAIN::conveyor_1::Stop_Button",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "propertyOrder": 20
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
         "RefreshDefinitions": {
             "ACCESS": 3,
             "DOMAIN": "TcHmiSrv",
@@ -3427,6 +3461,8 @@
                 "LocalizeText": 3,
                 "Login": 3,
                 "Logout": 3,
+                "PLC1.MAIN.conveyor_1.Start_Button": 3,
+                "PLC1.MAIN.conveyor_1.Stop_Button": 3,
                 "SetLocale": 3,
                 "SubscribeEvents": 3,
                 "TcHmiSqliteLogger.Diagnostics": 1,

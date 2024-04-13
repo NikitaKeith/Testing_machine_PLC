@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
   <POU Name="Conveyor_3" Id="{aef875ec-eabd-4b45-a2e3-cc6aeda63d3a}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION_BLOCK Conveyor_3
 VAR_INPUT
@@ -8,6 +8,7 @@ VAR_INPUT
 	Inp_Conveyor_3_Pallete_Slider_In					: BOOL;
 	Inp_Conveyor_3_Pallete_Slider_Out					: BOOL;	
 	Inp_Motor_3_Protection_Switch_is_OK					: BOOL;
+	Inp_Conveyor_2_Palette_Right_Side					: BOOL;
 END_VAR
 VAR_OUTPUT
 	Out_Conveyor_3_Motor_On								: BOOL;	
@@ -23,10 +24,31 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[]]></ST>
+      <ST><![CDATA[IF Inp_Conveyor_2_Palette_Right_Side
+	THEN Out_Conveyor_3_Pallete_Slider_Drive_In:=FALSE; Out_Conveyor_3_Pallete_Slider_Drive_Out:=TRUE;
+END_IF
+IF Inp_Conveyor_3_Pallete_Slider_Out
+	THEN Out_Conveyor_3_Pallete_Slider_Drive_Out:=FALSE; Out_Conveyor_3_Pallete_Slider_Drive_In:=TRUE;
+END_IF
+
+IF Inp_Conveyor_3_Palette_Right_Side AND NOT Inp_Conveyor_3_Palette_Left_Side
+	THEN Out_Conveyor_3_Motor_On:=TRUE;
+END_IF
+
+IF Inp_Conveyor_3_Palette_Left_Side
+	THEN Out_Conveyor_3_Motor_On:=FALSE;
+END_IF]]></ST>
     </Implementation>
     <LineIds Name="Conveyor_3">
+      <LineId Id="34" Count="0" />
+      <LineId Id="37" Count="1" />
+      <LineId Id="40" Count="2" />
+      <LineId Id="35" Count="0" />
       <LineId Id="9" Count="0" />
+      <LineId Id="30" Count="1" />
+      <LineId Id="33" Count="0" />
+      <LineId Id="32" Count="0" />
+      <LineId Id="43" Count="1" />
     </LineIds>
   </POU>
 </TcPlcObject>

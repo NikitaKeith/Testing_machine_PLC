@@ -23,6 +23,8 @@ VAR_INPUT
 	
 	Inp_Motor_1_Protection_Switch_is_OK						: BOOL;
 	Inp_Base_Positions										: BOOL;
+	Start_Button:BOOL;
+	Stop_Button:BOOL;
 END_VAR
 VAR_OUTPUT
 	Out_Conveyor_1_Motor_On									 : BOOL;
@@ -65,7 +67,7 @@ END_IF
 IF Inp_Part_On_Conveyor_1 AND Inp_Plunger_Parts_Container_Out
 	THEN 
 	Out_Conveyor_1_Motor_On:=TRUE;
-	Part_is_shipped_on_the_Conveyor_2:=FALSE;
+	M_Part_is_shipped_on_the_Conveyor_2:=FALSE;
 END_IF
 
 IF Out_Conveyor_1_Motor_On AND Inp_Part_in_front_of_Parts_Alignment

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
   <POU Name="MAIN" Id="{963367b4-7853-46d9-a119-421c43f5684c}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
@@ -96,6 +96,11 @@ VAR
 	position:Positions;
 	a:INT;
 	motor_Sorting:Motor_Sorting;
+	conveyor_1:Conveyor_1;
+	conveyor_2:Conveyor_2;
+	conveyor_3:Conveyor_3;
+	Inp_Feedback_from_Tester_GOOD_Part: BOOL;
+	Inp_Feedback_from_Tester_BAD_Part: BOOL;
 END_VAR]]></Declaration>
     <Implementation>
       <ST><![CDATA[motor_Sorting(
@@ -113,11 +118,91 @@ END_VAR]]></Declaration>
 	Out_Measuring_Bar_Sorting_Axis_X_Left_Rotation_Motor_On=> , 
 	Out_Measuring_Bar_Sorting_Axis_Y_Left_Rotation_Motor_On=> , 
 	Out_Sorter_Pluger_Pull_in=> , 
-	Palette_at_Sorter_is_free=> );]]></ST>
+	Palette_at_Sorter_is_free=> );
+	
+	conveyor_1(
+	Inp_Part_at_Conveyor_1:= Inp_Part_at_Conveyor_1, 
+	Inp_Plunger_Parts_Container_In:= Inp_Plunger_Parts_Container_In, 
+	Inp_Plunger_Parts_Container_Out:= Inp_Plunger_Parts_Container_Out, 
+	Inp_Part_On_Conveyor_1:= Inp_Part_On_Conveyor_1, 
+	Inp_Part_in_front_of_Parts_Alignment:= Inp_Part_in_front_of_Parts_Alignment, 
+	Inp_Plunger_Parts_Alignment_Left_In:= Inp_Plunger_Parts_Alignment_Left_In, 
+	Inp_Plunger_Parts_Alignment_Left_Out:= Inp_Plunger_Parts_Alignment_Left_Out, 
+	Inp_Plunger_Parts_Alignment_Right_In:= Inp_Plunger_Parts_Alignment_Right_In, 
+	Inp_Plunger_Parts_Alignment_Right_Out:= Inp_Plunger_Parts_Alignment_Right_Out, 
+	Inp_Plunger_Parts_Alignment_Above_In:= Inp_Plunger_Parts_Alignment_Above_In, 
+	Inp_Plunger_Parts_Alignment_Above_Out:= Inp_Plunger_Parts_Alignment_Above_Out, 
+	Inp_Part_in_front_of_Crane:= Inp_Part_in_front_of_Crane, 
+	Inp_Crane_In:= Inp_Crane_In, 
+	Inp_Crane_Out:= Inp_Crane_Out, 
+	Inp_Crane_Above:= Inp_Crane_Above, 
+	Inp_Crane_Below:= Inp_Crane_Below, 
+	Inp_Motor_1_Protection_Switch_is_OK:= Inp_Motor_1_Protection_Switch_is_OK, 
+	Inp_Base_Positions:= Inp_Base_Positions, 
+	Out_Conveyor_1_Motor_On=> , 
+	Out_Plunger_Parts_Container_Drive_In=> , 
+	Out_Plunger_Parts_Container_Drive_Out=> , 
+	Out_Plunger_Parts_Alignment_Left_Drive_In=> , 
+	Out_Plunger_Parts_Alignment_Left_Drive_Out=> , 
+	Out_Plunger_Parts_Alignment_Right_Drive_In=> , 
+	Out_Plunger_Parts_Alignment_Right_Drive_Out=> , 
+	Out_Plunger_Parts_Alignment_Above_Drive_In=> , 
+	Out_Plunger_Parts_Alignment_Above_Drive_Out=> , 
+	Out_Crane_Drive_In=> , 
+	Out_Crane_Drive_Out=> , 
+	Out_Crane_Drive_Up=> , 
+	Out_Crane_Drive_Down=> , 
+	Out_Crane_Take_a_Part=> , 
+	M_Part_is_shipped_on_the_Conveyor_2=> );
+	
+	conveyor_2(
+	Inp_Conveyor_2_Palette_Left_Side:= Inp_Conveyor_2_Palette_Left_Side, 
+	Inp_Conveyor_2_Palette_Right_Side:= Inp_Conveyor_2_Palette_Right_Side, 
+	Inp_Palette_in_front_of_Tester:= Inp_Palette_in_front_of_Tester, 
+	Inp_Stopper_Below:= Inp_Stopper_Below, 
+	Inp_Stopper_Above:= Inp_Stopper_Above, 
+	Inp_Feedback_from_Tester_GOOD_Part:= Inp_Feedback_from_Tester_GOOD_Part, 
+	Inp_Feedback_from_Tester_BAD_Part:= Inp_Feedback_from_Tester_BAD_Part, 
+	Inp_Motor_2_Protection_Switch_is_OK:= Inp_Motor_2_Protection_Switch_is_OK, 
+	Inp_Conveyor_2_Pallete_Slider_In:= Inp_Conveyor_2_Pallete_Slider_In, 
+	Inp_Conveyor_2_Pallete_Slider_Out:= Inp_Conveyor_2_Pallete_Slider_Out, 
+	Out_Conveyor_2_Motor_On=> , 
+	Out_Stopper_Drive_Up=> , 
+	Out_Stopper_Drive_Down=> , 
+	Out_Conveyor_2_Pallete_Slider_Drive_In=> , 
+	Out_Conveyor_2_Pallete_Slider_Drive_Out=> , 
+	M_Conveyor_2_is_ready_to_take_Part_From_Conveyor_2=> , 
+	M_Part_is_ready_for_Test=> , 
+	M_Part_is_ready_for_sorting=> );
+	
+	conveyor_3(
+	Inp_Conveyor_3_Palette_Left_Side:= Inp_Conveyor_3_Palette_Left_Side, 
+	Inp_Conveyor_3_Palette_Right_Side:= Inp_Conveyor_3_Palette_Right_Side, 
+	Inp_Conveyor_3_Pallete_Slider_In:= Inp_Conveyor_3_Pallete_Slider_In, 
+	Inp_Conveyor_3_Pallete_Slider_Out:= Inp_Conveyor_3_Pallete_Slider_Out, 
+	Inp_Motor_3_Protection_Switch_is_OK:= Inp_Motor_3_Protection_Switch_is_OK, 
+	Inp_Conveyor_2_Palette_Right_Side:= Inp_Conveyor_2_Palette_Right_Side, 
+	Out_Conveyor_3_Motor_On=> , 
+	Out_Conveyor_3_Pallete_Slider_Drive_In=> , 
+	Out_Conveyor_3_Pallete_Slider_Drive_Out=> , 
+	Out_Sortierer_Pluger_Drive_Up=> , 
+	Out_Sortierer_Pluger_Drive_Down=> , 
+	Out_Measuring_Bar_Sorting_Axis_X_Motor_On=> , 
+	Out_Measuring_Bar_Sorting_Axis_Y_Motor_On=> , 
+	Out_Sorter_Pluger_Pull_in=> );]]></ST>
     </Implementation>
     <LineIds Name="MAIN">
       <LineId Id="98" Count="14" />
       <LineId Id="2" Count="0" />
+      <LineId Id="208" Count="0" />
+      <LineId Id="213" Count="32" />
+      <LineId Id="209" Count="0" />
+      <LineId Id="246" Count="0" />
+      <LineId Id="248" Count="17" />
+      <LineId Id="247" Count="0" />
+      <LineId Id="266" Count="0" />
+      <LineId Id="268" Count="13" />
+      <LineId Id="267" Count="0" />
     </LineIds>
   </POU>
 </TcPlcObject>
