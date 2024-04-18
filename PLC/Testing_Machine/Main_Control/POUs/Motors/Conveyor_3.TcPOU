@@ -31,7 +31,7 @@ IF Inp_Conveyor_3_Pallete_Slider_Out
 	THEN Out_Conveyor_3_Pallete_Slider_Drive_Out:=FALSE; Out_Conveyor_3_Pallete_Slider_Drive_In:=TRUE;
 END_IF
 
-IF Inp_Conveyor_3_Palette_Right_Side AND NOT Inp_Conveyor_3_Palette_Left_Side
+IF Inp_Conveyor_3_Palette_Right_Side AND NOT Inp_Conveyor_3_Palette_Left_Side AND NOT Out_Conveyor_3_Motor_On
 	THEN Out_Conveyor_3_Motor_On:=TRUE;
 END_IF
 

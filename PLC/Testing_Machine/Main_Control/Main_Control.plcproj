@@ -36,19 +36,16 @@
     <Compile Include="PlcTask.TcTTO">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="POUs\EventLogger.TcPOU">
+    <Compile Include="POUs\Heplcode\EventLogger.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="POUs\FB_Time_Counter.TcPOU">
+    <Compile Include="POUs\Heplcode\FB_Time_Counter.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="POUs\Save_Error.TcPOU">
+    <Compile Include="POUs\Heplcode\F_UpdateEvent.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="POUs\F_UpdateEvent.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="POUs\Machine_Base_Position.TcPOU">
+    <Compile Include="POUs\Heplcode\Save_Error.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\MAIN.TcPOU">
@@ -66,7 +63,10 @@
     <Compile Include="POUs\Motors\Motor_Sorting.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="POUs\Motors\Positions_init.TcPOU">
+    <Compile Include="POUs\Positions\Machine_Base_Position.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Positions\Positions_init.TcPOU">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -74,6 +74,8 @@
     <Folder Include="DUTs" />
     <Folder Include="GVLs" />
     <Folder Include="POUs\Motors" />
+    <Folder Include="POUs\Heplcode" />
+    <Folder Include="POUs\Positions" />
     <Folder Include="VISUs" />
     <Folder Include="POUs" />
   </ItemGroup>
@@ -95,10 +97,6 @@
     <None Include="Main_Control.tmc">
       <SubType>Content</SubType>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <SubObject Include="EventLogger.AddEvent" />
-    <SubObject Include="EventLogger.isEventBufferFull" />
   </ItemGroup>
   <ProjectExtensions>
     <PlcProjectOptions>

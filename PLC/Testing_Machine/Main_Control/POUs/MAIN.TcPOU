@@ -38,6 +38,8 @@ VAR
 	
 	Inp_Conveyor_2_Pallete_Slider_In					AT%I*: BOOL;
 	Inp_Conveyor_2_Pallete_Slider_Out					AT%I*: BOOL;
+	Inp_Feedback_from_Tester_GOOD_Part					AT%I*: BOOL;
+	Inp_Feedback_from_Tester_BAD_Part					AT%I*: BOOL;
 		
 		//Part 3(Conveyor 3)
 	Inp_Conveyor_3_Palette_Left_Side					AT%I*: BOOL;
@@ -99,8 +101,9 @@ VAR
 	conveyor_1:Conveyor_1;
 	conveyor_2:Conveyor_2;
 	conveyor_3:Conveyor_3;
-	Inp_Feedback_from_Tester_GOOD_Part: BOOL;
-	Inp_Feedback_from_Tester_BAD_Part: BOOL;
+	Buffer_VAR_Feedback_from_Tester_GOOD_Part:BOOL;
+	Buffer_VAR_Feedback_from_Tester_BAD_Part:BOOL;
+
 END_VAR]]></Declaration>
     <Implementation>
       <ST><![CDATA[motor_Sorting(
@@ -112,6 +115,8 @@ END_VAR]]></Declaration>
 	Inp_Measuring_Bar_Sorting_Axis_Y:= , 
 	Inp_Form_is_Changed_Button:= , 
 	Out_Sorter_Pluger_Drive_Up=> , 
+	BOOL_Feedback_from_Tester_GOOD_Part:= Buffer_VAR_Feedback_from_Tester_GOOD_Part, 
+	BOOL_Feedback_from_Tester_BAD_Part:= Buffer_VAR_Feedback_from_Tester_BAD_Part, 
 	Out_Sorter_Pluger_Drive_Down=> , 
 	Out_Measuring_Bar_Sorting_Axis_X_Right_Rotation_Motor_On=> , 
 	Out_Measuring_Bar_Sorting_Axis_Y_Right_Rotation_Motor_On=> , 
@@ -161,8 +166,8 @@ END_VAR]]></Declaration>
 	Inp_Palette_in_front_of_Tester:= Inp_Palette_in_front_of_Tester, 
 	Inp_Stopper_Below:= Inp_Stopper_Below, 
 	Inp_Stopper_Above:= Inp_Stopper_Above, 
-	Inp_Feedback_from_Tester_GOOD_Part:= Inp_Feedback_from_Tester_GOOD_Part, 
-	Inp_Feedback_from_Tester_BAD_Part:= Inp_Feedback_from_Tester_BAD_Part, 
+	BOOL_Feedback_from_Tester_GOOD_Part:= Buffer_VAR_Feedback_from_Tester_GOOD_Part, 
+	BOOL_Feedback_from_Tester_BAD_Part:= Buffer_VAR_Feedback_from_Tester_BAD_Part, 
 	Inp_Motor_2_Protection_Switch_is_OK:= Inp_Motor_2_Protection_Switch_is_OK, 
 	Inp_Conveyor_2_Pallete_Slider_In:= Inp_Conveyor_2_Pallete_Slider_In, 
 	Inp_Conveyor_2_Pallete_Slider_Out:= Inp_Conveyor_2_Pallete_Slider_Out, 
@@ -172,8 +177,7 @@ END_VAR]]></Declaration>
 	Out_Conveyor_2_Pallete_Slider_Drive_In=> , 
 	Out_Conveyor_2_Pallete_Slider_Drive_Out=> , 
 	M_Conveyor_2_is_ready_to_take_Part_From_Conveyor_2=> , 
-	M_Part_is_ready_for_Test=> , 
-	M_Part_is_ready_for_sorting=> );
+	M_Part_is_ready_for_Test=> );
 	
 	conveyor_3(
 	Inp_Conveyor_3_Palette_Left_Side:= Inp_Conveyor_3_Palette_Left_Side, 
@@ -184,25 +188,46 @@ END_VAR]]></Declaration>
 	Inp_Conveyor_2_Palette_Right_Side:= Inp_Conveyor_2_Palette_Right_Side, 
 	Out_Conveyor_3_Motor_On=> , 
 	Out_Conveyor_3_Pallete_Slider_Drive_In=> , 
-	Out_Conveyor_3_Pallete_Slider_Drive_Out=> , 
+	Out_Conveyor_3_Pallete_Slider_Drive_Out=> ,
 	Out_Sortierer_Pluger_Drive_Up=> , 
 	Out_Sortierer_Pluger_Drive_Down=> , 
 	Out_Measuring_Bar_Sorting_Axis_X_Motor_On=> , 
 	Out_Measuring_Bar_Sorting_Axis_Y_Motor_On=> , 
-	Out_Sorter_Pluger_Pull_in=> );]]></ST>
+	Out_Sorter_Pluger_Pull_in=> );
+	
+	IF Inp_Feedback_from_Tester_GOOD_Part OR Main.motor_Sorting.Write_BOOL_Feedback_from_Tester_GOOD_Part
+		THEN Buffer_VAR_Feedback_from_Tester_GOOD_Part:=TRUE;
+	END_IF
+		IF Inp_Feedback_from_Tester_GOOD_Part=FALSE OR Main.motor_Sorting.Write_BOOL_Feedback_from_Tester_GOOD_Part=FALSE
+		THEN Buffer_VAR_Feedback_from_Tester_GOOD_Part:=FALSE;
+	END_IF
+	
+		IF Inp_Feedback_from_Tester_BAD_Part OR Main.motor_Sorting.Write_BOOL_Feedback_from_Tester_BAD_Part
+		THEN Buffer_VAR_Feedback_from_Tester_BAD_Part:=TRUE;
+	END_IF
+		IF Inp_Feedback_from_Tester_BAD_Part=FALSE OR Main.motor_Sorting.Write_BOOL_Feedback_from_Tester_BAD_Part=FALSE
+		THEN Buffer_VAR_Feedback_from_Tester_BAD_Part:=FALSE;
+	END_IF]]></ST>
     </Implementation>
     <LineIds Name="MAIN">
-      <LineId Id="98" Count="14" />
+      <LineId Id="98" Count="8" />
+      <LineId Id="403" Count="1" />
+      <LineId Id="107" Count="5" />
       <LineId Id="2" Count="0" />
       <LineId Id="208" Count="0" />
       <LineId Id="213" Count="32" />
       <LineId Id="209" Count="0" />
       <LineId Id="246" Count="0" />
-      <LineId Id="248" Count="17" />
-      <LineId Id="247" Count="0" />
-      <LineId Id="266" Count="0" />
+      <LineId Id="248" Count="18" />
       <LineId Id="268" Count="13" />
       <LineId Id="267" Count="0" />
+      <LineId Id="382" Count="1" />
+      <LineId Id="388" Count="1" />
+      <LineId Id="392" Count="1" />
+      <LineId Id="391" Count="0" />
+      <LineId Id="400" Count="0" />
+      <LineId Id="395" Count="4" />
+      <LineId Id="394" Count="0" />
     </LineIds>
   </POU>
 </TcPlcObject>

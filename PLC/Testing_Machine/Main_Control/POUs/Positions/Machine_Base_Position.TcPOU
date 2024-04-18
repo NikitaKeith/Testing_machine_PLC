@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
   <POU Name="Machine_Base_Position" Id="{4ef9c4e8-467c-4dd0-84ed-47994cb7c37a}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION_BLOCK Machine_Base_Position
 VAR_INPUT

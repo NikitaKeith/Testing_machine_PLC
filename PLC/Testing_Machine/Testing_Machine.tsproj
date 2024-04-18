@@ -47,7 +47,7 @@
 		</System>
 		<Plc>
 			<Project GUID="{7CEC6D2E-42B5-471B-B363-981A4D996A20}" Name="Main_Control" PrjFilePath="Main_Control\Main_Control.plcproj" TmcFilePath="Main_Control\Main_Control.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="Main_Control\Main_Control.tmc" TmcHash="{C6CDFFB7-4ECE-417A-F390-552519C8F25C}">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="Main_Control\Main_Control.tmc" TmcHash="{E9127D0E-63FE-D99E-5377-1203A2E3EA20}">
 					<Name>Main_Control Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Vars VarGrpType="1">
@@ -165,6 +165,14 @@ Part 1(Conveyor 1)	]]></Comment>
 						</Var>
 						<Var>
 							<Name>MAIN.Inp_Conveyor_2_Pallete_Slider_Out</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Inp_Feedback_from_Tester_GOOD_Part</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.Inp_Feedback_from_Tester_BAD_Part</Name>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
