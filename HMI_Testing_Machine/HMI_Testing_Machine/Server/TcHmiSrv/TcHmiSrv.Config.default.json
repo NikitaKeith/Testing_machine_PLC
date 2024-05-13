@@ -27,7 +27,132 @@
     "DEFAULTTIMEFORMATLOCALE": "client",
     "DEFAULTTIMEZONE": "client",
     "DEFAULTUSERGROUP": "__SystemUsers",
-    "DEFINITIONS": {},
+    "DEFINITIONS": {
+        "PLC1.ARRAY_1..500_OF-ST_Event": {
+            "items": {
+                "$ref": "#/definitions/PLC1.ST_Event"
+            },
+            "maxItems": 500,
+            "minItems": 500,
+            "startOffset": 1,
+            "type": "array"
+        },
+        "PLC1.E_EventType": {
+            "attributes": {
+                "generate_implicit_init_function": "",
+                "qualified_only": "",
+                "strict": ""
+            },
+            "enum": [
+                0,
+                1
+            ],
+            "options": [
+                {
+                    "label": "Alarm",
+                    "value": 0
+                },
+                {
+                    "label": "Message",
+                    "value": 1
+                }
+            ],
+            "type": "integer"
+        },
+        "PLC1.ST_Event": {
+            "properties": {
+                "What_happend": {
+                    "allOf": [
+                        {
+                            "maxLength": 20,
+                            "propertyOrder": 1
+                        },
+                        {
+                            "$ref": "tchmi:general#/definitions/String"
+                        }
+                    ]
+                },
+                "dtTimeStamp": {
+                    "allOf": [
+                        {
+                            "$ref": "tchmi:general#/definitions/DATE_AND_TIME"
+                        },
+                        {
+                            "propertyOrder": 5
+                        }
+                    ]
+                },
+                "eEventSeverity": {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/PLC1.TcEventSeverity"
+                        },
+                        {
+                            "propertyOrder": 4
+                        }
+                    ]
+                },
+                "eEventType": {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/PLC1.E_EventType"
+                        },
+                        {
+                            "propertyOrder": 3
+                        }
+                    ]
+                },
+                "sEventText": {
+                    "allOf": [
+                        {
+                            "maxLength": 255,
+                            "propertyOrder": 2
+                        },
+                        {
+                            "$ref": "tchmi:general#/definitions/String"
+                        }
+                    ]
+                }
+            },
+            "type": "object"
+        },
+        "PLC1.TcEventSeverity": {
+            "attributes": {
+                "plcAttribute_qualified_only": "",
+                "plcAttribute_strict": ""
+            },
+            "enum": [
+                0,
+                1,
+                2,
+                3,
+                4
+            ],
+            "options": [
+                {
+                    "label": "TCEVENTSEVERITY_Verbose",
+                    "value": 0
+                },
+                {
+                    "label": "TCEVENTSEVERITY_Info",
+                    "value": 1
+                },
+                {
+                    "label": "TCEVENTSEVERITY_Warning",
+                    "value": 2
+                },
+                {
+                    "label": "TCEVENTSEVERITY_Error",
+                    "value": 3
+                },
+                {
+                    "label": "TCEVENTSEVERITY_Critical",
+                    "value": 4
+                }
+            ],
+            "type": "integer"
+        }
+    },
     "DEFLATECOMPRESSIONLEVEL": 5,
     "DIAGNOSTICS_DOMAINS": [],
     "DISABLED_CONFIGURATION_HINTS": [],
@@ -45,6 +170,13 @@
             "PATH": "TcHmiAds\\",
             "PROCESSID": -1,
             "REQUIRED": true,
+            "STARTUPTYPE": 1
+        },
+        "TcHmiEventLogger": {
+            "ENABLED": true,
+            "NAME": "TcHmiEventLogger",
+            "PATH": "..\\..\\Packages\\Beckhoff.TwinCAT.HMI.EventLogger.19.0.109\\runtimes\\win-x64\\native\\",
+            "REQUIRED": false,
             "STARTUPTYPE": 1
         },
         "TcHmiLua": {
@@ -2508,6 +2640,291 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.GVL.EventBuffer": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::GVL::EventBuffer",
+            "SCHEMA": {
+                "$ref": "tchmi:server#/definitions/PLC1.ARRAY_1..500_OF-ST_Event"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.GVL.Part_is_Sorted": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::GVL::Part_is_Sorted",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.Inp_Base_Positions": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::MAIN::Inp_Base_Positions",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "attributes": {
+                            "TcAddressType": "Input"
+                        }
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.Inp_Conveyor_3_Palette_Left_Side": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::MAIN::Inp_Conveyor_3_Palette_Left_Side",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "attributes": {
+                            "TcAddressType": "Input"
+                        },
+                        "comment": "Part 3(Conveyor 3)"
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.Inp_Conveyor_3_Palette_Right_Side": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::MAIN::Inp_Conveyor_3_Palette_Right_Side",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "attributes": {
+                            "TcAddressType": "Input"
+                        }
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.Inp_Crane_Above": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::MAIN::Inp_Crane_Above",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "attributes": {
+                            "TcAddressType": "Input"
+                        }
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.Inp_Crane_Below": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::MAIN::Inp_Crane_Below",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "attributes": {
+                            "TcAddressType": "Input"
+                        }
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.Inp_Crane_In": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::MAIN::Inp_Crane_In",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "attributes": {
+                            "TcAddressType": "Input"
+                        }
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.Inp_Crane_Out": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::MAIN::Inp_Crane_Out",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "attributes": {
+                            "TcAddressType": "Input"
+                        }
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.Inp_Palette_in_front_of_Tester": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::MAIN::Inp_Palette_in_front_of_Tester",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "attributes": {
+                            "TcAddressType": "Input"
+                        }
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.Inp_Part_On_Conveyor_1": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::MAIN::Inp_Part_On_Conveyor_1",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "attributes": {
+                            "TcAddressType": "Input"
+                        }
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.Inp_Part_in_front_of_Crane": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::MAIN::Inp_Part_in_front_of_Crane",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "attributes": {
+                            "TcAddressType": "Input"
+                        }
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.Inp_Part_in_front_of_Parts_Alignment": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::MAIN::Inp_Part_in_front_of_Parts_Alignment",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "attributes": {
+                            "TcAddressType": "Input"
+                        }
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.Inp_Start_Button": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::MAIN::Inp_Start_Button",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "attributes": {
+                            "TcAddressType": "Input"
+                        }
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.Inp_Stop_Button": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::MAIN::Inp_Stop_Button",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "attributes": {
+                            "TcAddressType": "Input"
+                        }
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.conveyor_1.M_Part_is_shipped_on_the_Conveyor_2": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::MAIN::conveyor_1::M_Part_is_shipped_on_the_Conveyor_2",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "propertyOrder": 33
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
         "PLC1.MAIN.conveyor_1.Start_Button": {
             "ACCESS": 3,
             "DOMAIN": "ADS",
@@ -2537,6 +2954,57 @@
                     },
                     {
                         "propertyOrder": 20
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.conveyor_2.Inp_Conveyor_2_Palette_Left_Side": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::MAIN::conveyor_2::Inp_Conveyor_2_Palette_Left_Side",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "propertyOrder": 1
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.conveyor_2.Inp_Conveyor_2_Palette_Right_Side": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::MAIN::conveyor_2::Inp_Conveyor_2_Palette_Right_Side",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "propertyOrder": 2
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.motor_Sorting.i": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::MAIN::motor_Sorting::i",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/INT"
+                    },
+                    {
+                        "propertyOrder": 23
                     }
                 ]
             },
@@ -2854,6 +3322,138 @@
                     "description": "The requestId of a subscription.",
                     "type": "integer"
                 }
+            },
+            "USEMAPPING": true
+        },
+        "TcHmiEventLogger.ClearLoggedEvents": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiEventLogger",
+            "DYNAMIC": false,
+            "HIDDEN": true,
+            "MAPPING": "ClearLoggedEvents",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true,
+                "writeValue": {
+                    "properties": {
+                        "targetName": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "targetName"
+                    ],
+                    "type": "object"
+                }
+            },
+            "USEMAPPING": true
+        },
+        "TcHmiEventLogger.Config": {
+            "ACCESS": 0,
+            "DOMAIN": "TcHmiEventLogger",
+            "DYNAMIC": false,
+            "HIDDEN": true,
+            "MAPPING": "Config",
+            "OPTIONS": {},
+            "SCHEMA": {},
+            "USEMAPPING": true
+        },
+        "TcHmiEventLogger.Diagnostics": {
+            "ACCESS": 1,
+            "DOMAIN": "TcHmiEventLogger",
+            "DYNAMIC": false,
+            "HIDDEN": true,
+            "MAPPING": "Diagnostics",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true,
+                "properties": {
+                    "TARGET_SYSTEMS": {
+                        "additionalProperties": {
+                            "properties": {
+                                "activeAlarmsCount": {
+                                    "propertyOrder": 10,
+                                    "readOnly": true,
+                                    "type": "integer"
+                                },
+                                "cachedAlarmsCount": {
+                                    "hidden": true,
+                                    "propertyOrder": 8,
+                                    "readOnly": true,
+                                    "type": "integer"
+                                },
+                                "cachedInvalidAlarmsCount": {
+                                    "hidden": true,
+                                    "propertyOrder": 9,
+                                    "readOnly": true,
+                                    "type": "integer"
+                                },
+                                "cachedMessagesCount": {
+                                    "hidden": true,
+                                    "propertyOrder": 7,
+                                    "readOnly": true,
+                                    "type": "integer"
+                                },
+                                "connectError": {
+                                    "propertyOrder": 2,
+                                    "readOnly": true,
+                                    "type": "string"
+                                },
+                                "connectionState": {
+                                    "propertyOrder": 1,
+                                    "readOnly": true,
+                                    "type": "string"
+                                },
+                                "importedAlarmsCount": {
+                                    "propertyOrder": 5,
+                                    "readOnly": true,
+                                    "type": "integer"
+                                },
+                                "importedEventsCount": {
+                                    "propertyOrder": 3,
+                                    "readOnly": true,
+                                    "type": "integer"
+                                },
+                                "importedInvalidAlarmsCount": {
+                                    "propertyOrder": 6,
+                                    "readOnly": true,
+                                    "type": "integer"
+                                },
+                                "importedMessagesCount": {
+                                    "propertyOrder": 4,
+                                    "readOnly": true,
+                                    "type": "integer"
+                                }
+                            },
+                            "readOnly": true,
+                            "required": [
+                                "connectionState"
+                            ],
+                            "type": "object"
+                        },
+                        "description": "DESC_TARGET_SYSTEM",
+                        "readOnly": true,
+                        "type": "object"
+                    }
+                },
+                "readOnly": true,
+                "type": "object"
+            },
+            "USEMAPPING": true
+        },
+        "TcHmiEventLogger.ListEnabledTargetSystems": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiEventLogger",
+            "DYNAMIC": false,
+            "HIDDEN": true,
+            "MAPPING": "ListEnabledTargetSystems",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true,
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
             },
             "USEMAPPING": true
         },
@@ -3461,10 +4061,31 @@
                 "LocalizeText": 3,
                 "Login": 3,
                 "Logout": 3,
+                "PLC1.GVL.EventBuffer": 3,
+                "PLC1.GVL.Part_is_Sorted": 3,
+                "PLC1.MAIN.Inp_Base_Positions": 3,
+                "PLC1.MAIN.Inp_Conveyor_3_Palette_Left_Side": 3,
+                "PLC1.MAIN.Inp_Conveyor_3_Palette_Right_Side": 3,
+                "PLC1.MAIN.Inp_Crane_Above": 3,
+                "PLC1.MAIN.Inp_Crane_Below": 3,
+                "PLC1.MAIN.Inp_Crane_In": 3,
+                "PLC1.MAIN.Inp_Crane_Out": 3,
+                "PLC1.MAIN.Inp_Palette_in_front_of_Tester": 3,
+                "PLC1.MAIN.Inp_Part_On_Conveyor_1": 3,
+                "PLC1.MAIN.Inp_Part_in_front_of_Crane": 3,
+                "PLC1.MAIN.Inp_Part_in_front_of_Parts_Alignment": 3,
+                "PLC1.MAIN.Inp_Start_Button": 3,
+                "PLC1.MAIN.Inp_Stop_Button": 3,
+                "PLC1.MAIN.conveyor_1.M_Part_is_shipped_on_the_Conveyor_2": 3,
                 "PLC1.MAIN.conveyor_1.Start_Button": 3,
                 "PLC1.MAIN.conveyor_1.Stop_Button": 3,
+                "PLC1.MAIN.conveyor_2.Inp_Conveyor_2_Palette_Left_Side": 3,
+                "PLC1.MAIN.conveyor_2.Inp_Conveyor_2_Palette_Right_Side": 3,
+                "PLC1.MAIN.motor_Sorting.i": 3,
                 "SetLocale": 3,
                 "SubscribeEvents": 3,
+                "TcHmiEventLogger.Diagnostics": 1,
+                "TcHmiEventLogger.ListEnabledTargetSystems": 3,
                 "TcHmiSqliteLogger.Diagnostics": 1,
                 "TcHmiUserManagement.ChangePassword": 3,
                 "Unsubscribe": 3,

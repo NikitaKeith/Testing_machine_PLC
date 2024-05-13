@@ -36,6 +36,7 @@ VAR_OUTPUT
 	Out_Measuring_Bar_Sorting_Axis_X_Motor_On			: BOOL;
 	Out_Measuring_Bar_Sorting_Axis_Y_Motor_On			: BOOL;
 	Out_Sorter_Pluger_Pull_in							: BOOL;
+	BOOL_Base_Position									: BOOL;
 END_VAR
 VAR
 	TON_Incident_Protection								: TON;
@@ -44,6 +45,7 @@ END_VAR
     <Implementation>
       <ST><![CDATA[TON_Incident_Protection(IN:= Inp_Base_Positions, PT:= T#3S, Q=> , ET=> );
 
+//bring to Base Position 
 IF Inp_Base_Positions AND TON_Incident_Protection.Q //goes after 3 seconds pushing
 	THEN 
 		//Conveyor 1	
@@ -76,11 +78,52 @@ IF Inp_Base_Positions AND TON_Incident_Protection.Q //goes after 3 seconds pushi
 	Out_Sortierer_Pluger_Drive_Up						:=TRUE;
 	Out_Conveyor_3_Pallete_Slider_Drive_In				:=TRUE;
 
-	Main.motor_Sorting.to_Start();
+	Main.motor_Sorting.Sorter_to_Start();
+END_IF
+
+//check Base Position
+IF 
+			//Conveyor 1	
+	Out_Conveyor_1_Motor_On									=FALSE
+	AND Out_Plunger_Parts_Container_Drive_In				=FALSE
+	AND Out_Plunger_Parts_Alignment_Right_Drive_Out			=FALSE
+	AND Out_Plunger_Parts_Alignment_Left_Drive_Out			=FALSE
+	AND Out_Crane_Drive_Down								=FALSE	
+	AND Out_Plunger_Parts_Alignment_Above_Drive_Out			=FALSE
+	AND Out_Crane_Drive_Out									=FALSE
+	AND Out_Crane_Drive_In									=TRUE
+	AND Out_Plunger_Parts_Alignment_Above_Drive_In			=TRUE	
+	AND Out_Plunger_Parts_Alignment_Right_Drive_In			=TRUE		
+	AND Out_Crane_Drive_Up									=TRUE
+	AND Out_Plunger_Parts_Container_Drive_Out				=TRUE
+	AND Out_Plunger_Parts_Alignment_Left_Drive_In			=TRUE
+			//Conveyor 2	
+	AND Out_Conveyor_2_Motor_On								=FALSE
+	AND Out_Stopper_Drive_Up								=FALSE
+	AND Out_Conveyor_2_Pallete_Slider_Drive_Out				=FALSE
+	AND Out_Stopper_Drive_Down								=TRUE
+	AND Out_Conveyor_2_Pallete_Slider_Drive_In				=TRUE
+	
+		//Conveyor 3
+	AND Out_Conveyor_3_Motor_On								=FALSE	
+	AND Out_Sortierer_Pluger_Drive_Down						=FALSE	
+	AND Out_Sorter_Pluger_Pull_in							=FALSE
+	AND Out_Conveyor_3_Pallete_Slider_Drive_Out				=FALSE
+	AND Out_Sortierer_Pluger_Drive_Up						=TRUE
+	AND Out_Conveyor_3_Pallete_Slider_Drive_In				=TRUE
+	AND Main.motor_Sorting.Measuring_Bar_Sorting_Axis_X_Motor_Above_Sorting_Place
+	AND Main.motor_Sorting.Measuring_Bar_Sorting_Axis_Y_Motor_Above_Sorting_Place
+	
+	THEN 
+		BOOL_Base_Position:=TRUE;
+	ELSE 
+		BOOL_Base_Position:=FALSE;
 END_IF]]></ST>
     </Implementation>
     <LineIds Name="Machine_Base_Position">
-      <LineId Id="103" Count="1" />
+      <LineId Id="103" Count="0" />
+      <LineId Id="189" Count="0" />
+      <LineId Id="104" Count="0" />
       <LineId Id="9" Count="0" />
       <LineId Id="24" Count="0" />
       <LineId Id="105" Count="0" />
@@ -100,6 +143,21 @@ END_IF]]></ST>
       <LineId Id="101" Count="0" />
       <LineId Id="36" Count="0" />
       <LineId Id="12" Count="0" />
+      <LineId Id="188" Count="0" />
+      <LineId Id="152" Count="0" />
+      <LineId Id="151" Count="0" />
+      <LineId Id="155" Count="8" />
+      <LineId Id="190" Count="0" />
+      <LineId Id="165" Count="4" />
+      <LineId Id="171" Count="3" />
+      <LineId Id="192" Count="0" />
+      <LineId Id="176" Count="6" />
+      <LineId Id="153" Count="0" />
+      <LineId Id="183" Count="2" />
+      <LineId Id="193" Count="1" />
+      <LineId Id="187" Count="0" />
+      <LineId Id="195" Count="0" />
+      <LineId Id="154" Count="0" />
     </LineIds>
   </POU>
 </TcPlcObject>

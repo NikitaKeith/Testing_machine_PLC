@@ -45,6 +45,9 @@
     <Compile Include="POUs\Heplcode\F_UpdateEvent.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="POUs\Heplcode\INFO.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\Heplcode\Save_Error.TcPOU">
       <SubType>Code</SubType>
     </Compile>

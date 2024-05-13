@@ -27,16 +27,17 @@ END_VAR
 VAR
 END_VAR]]></Declaration>
     <Implementation>
-      <ST><![CDATA[IF 	Inp_Conveyor_2_Palette_Left_Side 
+      <ST><![CDATA[IF 	Inp_Conveyor_2_Palette_Left_Side AND Main.M_Machine_Release.Q1
 	AND NOT Inp_Conveyor_2_Palette_Right_Side 
 	AND NOT Inp_Palette_in_front_of_Tester 
 	AND Inp_Stopper_Below 
 	AND Inp_Conveyor_2_Pallete_Slider_In 
 	AND NOT Out_Conveyor_2_Motor_On
-	THEN M_Conveyor_2_is_ready_to_take_Part_From_Conveyor_2:=TRUE;
+	THEN
+		M_Conveyor_2_is_ready_to_take_Part_From_Conveyor_2:=TRUE;
 END_IF
 
-IF 	NOT Inp_Conveyor_2_Palette_Left_Side 
+IF 	NOT Inp_Conveyor_2_Palette_Left_Side AND Main.M_Machine_Release.Q1
 	OR  Inp_Conveyor_2_Palette_Right_Side 
 	OR Inp_Palette_in_front_of_Tester 
 	OR NOT Inp_Stopper_Below 
@@ -46,60 +47,74 @@ IF 	NOT Inp_Conveyor_2_Palette_Left_Side
 		M_Conveyor_2_is_ready_to_take_Part_From_Conveyor_2:=FALSE;
 END_IF
 
-IF Main.conveyor_1.M_Part_is_shipped_on_the_Conveyor_2 AND NOT Inp_Conveyor_2_Palette_Right_Side
+IF Main.conveyor_1.M_Part_is_shipped_on_the_Conveyor_2 AND NOT Inp_Conveyor_2_Palette_Right_Side AND Main.M_Machine_Release.Q1
 	THEN  Out_Conveyor_2_Motor_On:=TRUE; GVL.M_Part_is_shipped_on_the_Conveyor_2:=FALSE;
 END_IF
 
-IF Inp_Palette_in_front_of_Tester
+IF Inp_Palette_in_front_of_Tester AND Main.M_Machine_Release.Q1
 	THEN  
 		Out_Conveyor_2_Motor_On:=FALSE;
 END_IF
 
-IF Inp_Palette_in_front_of_Tester AND Out_Conveyor_2_Motor_On=FALSE
+IF Inp_Palette_in_front_of_Tester AND Out_Conveyor_2_Motor_On=FALSE AND Main.M_Machine_Release.Q1
 	THEN 
 		Out_Stopper_Drive_Down:=FALSE;
 		Out_Stopper_Drive_Up:=TRUE;
 END_IF
 
-IF Inp_Stopper_Above AND NOT BOOL_Feedback_from_Tester_GOOD_Part AND NOT BOOL_Feedback_from_Tester_BAD_Part
-	THEN M_Part_is_ready_for_Test:=TRUE;
+IF Inp_Stopper_Above AND NOT BOOL_Feedback_from_Tester_GOOD_Part AND NOT BOOL_Feedback_from_Tester_BAD_Part AND Main.M_Machine_Release.Q1
+	THEN 
+		M_Part_is_ready_for_Test:=TRUE;
 END_IF
 
-IF Inp_Stopper_Above AND (BOOL_Feedback_from_Tester_GOOD_Part OR BOOL_Feedback_from_Tester_BAD_Part)
+IF Inp_Stopper_Above AND (BOOL_Feedback_from_Tester_GOOD_Part OR BOOL_Feedback_from_Tester_BAD_Part) AND Main.M_Machine_Release.Q1
 	THEN 
 		Out_Stopper_Drive_Up:=FALSE; 
 		Out_Stopper_Drive_Down:=TRUE; 
 		M_Part_is_ready_for_Test:=FALSE;
 END_IF
 
-IF Inp_Stopper_Below AND (BOOL_Feedback_from_Tester_GOOD_Part OR BOOL_Feedback_from_Tester_BAD_Part)
-	THEN Out_Conveyor_2_Motor_On:=TRUE;
+IF Inp_Stopper_Below AND (BOOL_Feedback_from_Tester_GOOD_Part OR BOOL_Feedback_from_Tester_BAD_Part) AND Main.M_Machine_Release.Q1
+	THEN 
+		Out_Conveyor_2_Motor_On:=TRUE;
 END_IF
 
-IF Inp_Conveyor_2_Palette_Right_Side AND (BOOL_Feedback_from_Tester_GOOD_Part OR BOOL_Feedback_from_Tester_BAD_Part)
-	THEN Out_Conveyor_2_Motor_On:=FALSE;
+IF Inp_Conveyor_2_Palette_Right_Side AND (BOOL_Feedback_from_Tester_GOOD_Part OR BOOL_Feedback_from_Tester_BAD_Part) AND Main.M_Machine_Release.Q1
+	THEN 
+		Out_Conveyor_2_Motor_On:=FALSE;
 		GVL.M_Part_is_ready_for_sorting:=TRUE;
 END_IF
 
-IF Main.conveyor_3.Out_Conveyor_3_Motor_On=FALSE 
+IF Main.conveyor_3.Out_Conveyor_3_Motor_On=FALSE AND Main.M_Machine_Release.Q1
 	AND NOT Main.conveyor_3.Inp_Conveyor_3_Palette_Left_Side 
 	AND NOT Main.conveyor_3.Inp_Conveyor_3_Palette_Right_Side
 	AND Main.conveyor_3.Inp_Conveyor_3_Pallete_Slider_In
 	AND GVL.Part_is_Sorted
 	THEN 
-	Out_Conveyor_2_Pallete_Slider_Drive_In:=FALSE;
-	Out_Conveyor_2_Pallete_Slider_Drive_Out:=TRUE;
-	GVL.Part_is_Sorted:=FALSE;
+		Out_Conveyor_2_Pallete_Slider_Drive_In:=FALSE;
+		Out_Conveyor_2_Pallete_Slider_Drive_Out:=TRUE;
+		GVL.Part_is_Sorted:=FALSE;
 END_IF
 
-IF Inp_Conveyor_2_Pallete_Slider_Out
-	THEN Out_Conveyor_2_Pallete_Slider_Drive_Out:=FALSE; Out_Conveyor_2_Pallete_Slider_Drive_In:=TRUE;
+IF Inp_Conveyor_2_Pallete_Slider_Out AND Main.M_Machine_Release.Q1
+	THEN 
+		Out_Conveyor_2_Pallete_Slider_Drive_Out:=FALSE; 
+		Out_Conveyor_2_Pallete_Slider_Drive_In:=TRUE;
 END_IF]]></ST>
     </Implementation>
     <LineIds Name="Conveyor_2">
-      <LineId Id="435" Count="39" />
+      <LineId Id="435" Count="6" />
+      <LineId Id="526" Count="0" />
+      <LineId Id="442" Count="28" />
+      <LineId Id="531" Count="0" />
+      <LineId Id="471" Count="3" />
       <LineId Id="499" Count="2" />
-      <LineId Id="475" Count="23" />
+      <LineId Id="475" Count="3" />
+      <LineId Id="530" Count="0" />
+      <LineId Id="479" Count="3" />
+      <LineId Id="529" Count="0" />
+      <LineId Id="483" Count="15" />
+      <LineId Id="527" Count="1" />
       <LineId Id="266" Count="0" />
     </LineIds>
   </POU>

@@ -25,6 +25,8 @@ VAR
 	
 	Inp_Motor_1_Protection_Switch_is_OK					AT%I*: BOOL;
 	Inp_Base_Positions									AT%I*: BOOL;
+	Inp_Start_Button									AT%I*: BOOL;
+	Inp_Stop_Button										AT%I*: BOOL;
 	
 		//Part 2(Conveyor 2)	
 	Inp_Conveyor_2_Palette_Left_Side					AT%I*: BOOL;
@@ -103,10 +105,15 @@ VAR
 	conveyor_3:Conveyor_3;
 	Buffer_VAR_Feedback_from_Tester_GOOD_Part:BOOL;
 	Buffer_VAR_Feedback_from_Tester_BAD_Part:BOOL;
-
+	M_Machine_Release										: RS;
+	Machine_Base_Position:Machine_Base_Position;
 END_VAR]]></Declaration>
     <Implementation>
-      <ST><![CDATA[motor_Sorting(
+      <ST><![CDATA[M_Machine_Release(
+SET:= Inp_Start_Button AND Machine_Base_Position.BOOL_Base_Position, 
+RESET1:= Inp_Stop_Button);
+
+motor_Sorting(
 	Inp_Conveyor_2_Palette_Right_Side_at_Sorter:= , 
 	Inp_Sortierer_in_Basic_Position:= , 
 	Inp_Sorter_Plunger_Above:= , 
@@ -195,6 +202,9 @@ END_VAR]]></Declaration>
 	Out_Measuring_Bar_Sorting_Axis_Y_Motor_On=> , 
 	Out_Sorter_Pluger_Pull_in=> );
 	
+	Machine_Base_Position(
+	Inp_Base_Positions:= Inp_Base_Positions );
+	
 	IF Inp_Feedback_from_Tester_GOOD_Part OR Main.motor_Sorting.Write_BOOL_Feedback_from_Tester_GOOD_Part
 		THEN Buffer_VAR_Feedback_from_Tester_GOOD_Part:=TRUE;
 	END_IF
@@ -210,23 +220,10 @@ END_VAR]]></Declaration>
 	END_IF]]></ST>
     </Implementation>
     <LineIds Name="MAIN">
-      <LineId Id="98" Count="8" />
-      <LineId Id="403" Count="1" />
-      <LineId Id="107" Count="5" />
-      <LineId Id="2" Count="0" />
-      <LineId Id="208" Count="0" />
-      <LineId Id="213" Count="32" />
-      <LineId Id="209" Count="0" />
-      <LineId Id="246" Count="0" />
-      <LineId Id="248" Count="18" />
-      <LineId Id="268" Count="13" />
-      <LineId Id="267" Count="0" />
-      <LineId Id="382" Count="1" />
-      <LineId Id="388" Count="1" />
-      <LineId Id="392" Count="1" />
-      <LineId Id="391" Count="0" />
-      <LineId Id="400" Count="0" />
-      <LineId Id="395" Count="4" />
+      <LineId Id="829" Count="91" />
+      <LineId Id="935" Count="0" />
+      <LineId Id="937" Count="1" />
+      <LineId Id="921" Count="12" />
       <LineId Id="394" Count="0" />
     </LineIds>
   </POU>

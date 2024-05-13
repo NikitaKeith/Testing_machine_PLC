@@ -3,10 +3,14 @@
   <GVL Name="GVL" Id="{8a814bb3-96b5-4f0e-a827-550052e1e8f4}">
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL
-	EventBuffer 					: ARRAY [1..500] OF ST_Event;
-	M_Part_is_ready_for_sorting		: BOOL;
-	M_Part_is_shipped_on_the_Conveyor_2: BOOL;
-	Part_is_Sorted					: BOOL;
+	M_Part_is_ready_for_sorting					: BOOL;
+	M_Part_is_shipped_on_the_Conveyor_2			: BOOL;
+	Part_is_Sorted								: BOOL;
+END_VAR
+
+VAR_GLOBAL PERSISTENT
+	EventBuffer 								: ARRAY [1..500] OF ST_Event;
+	Parts_Counter								: UINT:=0;
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

@@ -24,31 +24,48 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[IF Inp_Conveyor_2_Palette_Right_Side
-	THEN Out_Conveyor_3_Pallete_Slider_Drive_In:=FALSE; Out_Conveyor_3_Pallete_Slider_Drive_Out:=TRUE;
+      <ST><![CDATA[IF Inp_Conveyor_2_Palette_Right_Side AND Main.M_Machine_Release.Q1
+	THEN 
+		Out_Conveyor_3_Pallete_Slider_Drive_In:=FALSE; 
+		Out_Conveyor_3_Pallete_Slider_Drive_Out:=TRUE;
 END_IF
-IF Inp_Conveyor_3_Pallete_Slider_Out
-	THEN Out_Conveyor_3_Pallete_Slider_Drive_Out:=FALSE; Out_Conveyor_3_Pallete_Slider_Drive_In:=TRUE;
+IF Inp_Conveyor_3_Pallete_Slider_Out AND Main.M_Machine_Release.Q1
+	THEN 
+		Out_Conveyor_3_Pallete_Slider_Drive_Out:=FALSE; 
+		Out_Conveyor_3_Pallete_Slider_Drive_In:=TRUE;
 END_IF
 
-IF Inp_Conveyor_3_Palette_Right_Side AND NOT Inp_Conveyor_3_Palette_Left_Side AND NOT Out_Conveyor_3_Motor_On
-	THEN Out_Conveyor_3_Motor_On:=TRUE;
+IF  Inp_Conveyor_3_Palette_Right_Side AND Main.M_Machine_Release.Q1
+	AND NOT Inp_Conveyor_3_Palette_Left_Side 
+	AND NOT Out_Conveyor_3_Motor_On
+	THEN 
+		Out_Conveyor_3_Motor_On:=TRUE;
 END_IF
 
-IF Inp_Conveyor_3_Palette_Left_Side
-	THEN Out_Conveyor_3_Motor_On:=FALSE;
+IF Inp_Conveyor_3_Palette_Left_Side AND Main.M_Machine_Release.Q1
+	THEN 
+		Out_Conveyor_3_Motor_On:=FALSE;
 END_IF]]></ST>
     </Implementation>
     <LineIds Name="Conveyor_3">
       <LineId Id="34" Count="0" />
-      <LineId Id="37" Count="1" />
-      <LineId Id="40" Count="2" />
+      <LineId Id="37" Count="0" />
+      <LineId Id="68" Count="1" />
+      <LineId Id="38" Count="0" />
+      <LineId Id="40" Count="1" />
+      <LineId Id="66" Count="1" />
+      <LineId Id="42" Count="0" />
       <LineId Id="35" Count="0" />
       <LineId Id="9" Count="0" />
-      <LineId Id="30" Count="1" />
+      <LineId Id="72" Count="1" />
+      <LineId Id="30" Count="0" />
+      <LineId Id="70" Count="0" />
+      <LineId Id="31" Count="0" />
       <LineId Id="33" Count="0" />
       <LineId Id="32" Count="0" />
-      <LineId Id="43" Count="1" />
+      <LineId Id="43" Count="0" />
+      <LineId Id="71" Count="0" />
+      <LineId Id="44" Count="0" />
     </LineIds>
   </POU>
 </TcPlcObject>

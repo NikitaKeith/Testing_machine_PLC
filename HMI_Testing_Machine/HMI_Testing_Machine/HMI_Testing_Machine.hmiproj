@@ -113,11 +113,14 @@
     <Folder Include="Fonts\" />
     <Folder Include="Images" />
     <Folder Include="Images\Manifest" />
+    <Folder Include="Images\Conveyors" />
     <Folder Include="Imports" />
     <Folder Include="Imports\Images" />
     <Folder Include="Imports\Videos" />
     <Folder Include="KeyboardLayouts\" />
     <Folder Include="Localization" />
+    <Folder Include="Content" />
+    <Folder Include="Server\TcHmiEventLogger" />
     <Folder Include="Themes" />
     <Folder Include="Themes\Base-Dark\Images\" />
     <Folder Include="Themes\Base\" />
@@ -128,6 +131,51 @@
     <Folder Include="Properties" />
     <Content Include=".eslintrc.json">
       <Visible>false</Visible>
+    </Content>
+    <Content Include="Content\Control.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\Error-List.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\Live-View.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\Manual_Control.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\Statistic.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Conveyors\DOWN_IN.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Conveyors\DOWN_OUT.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Conveyors\Main.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Conveyors\Palette.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Conveyors\Part.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Conveyors\UP_IN.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Conveyors\UP_OUT.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Server\TcHmiEventLogger\TcHmiEventLogger.Config.default.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Server\TcHmiEventLogger\TcHmiEventLogger.Config.remote.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Server\TcHmiEventLogger\TcHmiEventLogger.Storage.json">
+      <SubType>Content</SubType>
     </Content>
     <Content Include="Server\TcHmiLua\TcHmiLua.Config.default.json">
       <SubType>Content</SubType>

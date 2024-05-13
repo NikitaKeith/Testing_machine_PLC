@@ -23,128 +23,133 @@ VAR_INPUT
 	
 	Inp_Motor_1_Protection_Switch_is_OK						: BOOL;
 	Inp_Base_Positions										: BOOL;
-	Start_Button:BOOL;
-	Stop_Button:BOOL;
 END_VAR
 VAR_OUTPUT
-	Out_Conveyor_1_Motor_On									 : BOOL;
-	Out_Plunger_Parts_Container_Drive_In					 : BOOL;
-	Out_Plunger_Parts_Container_Drive_Out					 : BOOL;
-	Out_Plunger_Parts_Alignment_Left_Drive_In			  	 : BOOL;
-	Out_Plunger_Parts_Alignment_Left_Drive_Out				 : BOOL;
-	Out_Plunger_Parts_Alignment_Right_Drive_In			 	 : BOOL;		
-	Out_Plunger_Parts_Alignment_Right_Drive_Out				 : BOOL;
-	Out_Plunger_Parts_Alignment_Above_Drive_In				 : BOOL;	
-	Out_Plunger_Parts_Alignment_Above_Drive_Out				 : BOOL;
-	Out_Crane_Drive_In										 : BOOL;
-	Out_Crane_Drive_Out										 : BOOL;
-	Out_Crane_Drive_Up										 : BOOL;
-	Out_Crane_Drive_Down									 : BOOL;
-	Out_Crane_Take_a_Part									 : BOOL;
-	M_Part_is_shipped_on_the_Conveyor_2						 : BOOL;
+	Out_Conveyor_1_Motor_On									: BOOL;
+	Out_Plunger_Parts_Container_Drive_In					: BOOL;
+	Out_Plunger_Parts_Container_Drive_Out					: BOOL;
+	Out_Plunger_Parts_Alignment_Left_Drive_In			  	: BOOL;
+	Out_Plunger_Parts_Alignment_Left_Drive_Out				: BOOL;
+	Out_Plunger_Parts_Alignment_Right_Drive_In			 	: BOOL;		
+	Out_Plunger_Parts_Alignment_Right_Drive_Out				: BOOL;
+	Out_Plunger_Parts_Alignment_Above_Drive_In				: BOOL;	
+	Out_Plunger_Parts_Alignment_Above_Drive_Out				: BOOL;
+	Out_Crane_Drive_In										: BOOL;
+	Out_Crane_Drive_Out										: BOOL;
+	Out_Crane_Drive_Up										: BOOL;
+	Out_Crane_Drive_Down									: BOOL;
+	Out_Crane_Take_a_Part									: BOOL;
+	M_Part_is_shipped_on_the_Conveyor_2						: BOOL;
 END_VAR
 VAR
-	TON_Plunger_Parts_Container_1Sec_open					 : TON;
-	M_Part_Loading											 : BOOL;
-	M_Conveyor_1_is_ready_to_ship_on_Conveyor_2				 : BOOL;
+	TON_Plunger_Parts_Container_1Sec_open					: TON;
+	M_Part_Loading											: BOOL;
+	M_Conveyor_1_is_ready_to_ship_on_Conveyor_2				: BOOL;
 END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[TON_Plunger_Parts_Container_1Sec_open(IN:= Inp_Plunger_Parts_Container_In, PT:= T#1S, Q=> , ET=> );
 
-IF Inp_Part_at_Conveyor_1 AND NOT Out_Conveyor_1_Motor_On AND NOT Inp_Part_in_front_of_Crane AND NOT Inp_Part_On_Conveyor_1	AND NOT Inp_Part_in_front_of_Parts_Alignment
+IF 	Inp_Part_at_Conveyor_1 
+	AND NOT Out_Conveyor_1_Motor_On 
+	AND NOT Inp_Part_in_front_of_Crane 
+	AND NOT Inp_Part_On_Conveyor_1	
+	AND NOT Inp_Part_in_front_of_Parts_Alignment
 	AND NOT M_Part_Loading
+	AND Main.M_Machine_Release.Q1
 	THEN
-	Out_Plunger_Parts_Container_Drive_Out:=FALSE;
-	Out_Plunger_Parts_Container_Drive_In:=TRUE;
+		Out_Plunger_Parts_Container_Drive_Out:=FALSE;
+		Out_Plunger_Parts_Container_Drive_In:=TRUE;
 END_IF
 
-IF TON_Plunger_Parts_Container_1Sec_open.Q
+IF TON_Plunger_Parts_Container_1Sec_open.Q AND Main.M_Machine_Release.Q1
 	THEN 
-	Out_Plunger_Parts_Container_Drive_In:=FALSE;
-	Out_Plunger_Parts_Container_Drive_Out:=TRUE;
+		Out_Plunger_Parts_Container_Drive_In:=FALSE;
+		Out_Plunger_Parts_Container_Drive_Out:=TRUE;
 END_IF
 
-IF Inp_Part_On_Conveyor_1 AND Inp_Plunger_Parts_Container_Out
+IF Inp_Part_On_Conveyor_1 AND Inp_Plunger_Parts_Container_Out AND Main.M_Machine_Release.Q1
 	THEN 
-	Out_Conveyor_1_Motor_On:=TRUE;
+		Out_Conveyor_1_Motor_On:=TRUE;
 END_IF
 
-IF Out_Conveyor_1_Motor_On AND Inp_Part_in_front_of_Parts_Alignment
+IF Out_Conveyor_1_Motor_On AND Inp_Part_in_front_of_Parts_Alignment AND Main.M_Machine_Release.Q1
 	THEN 
-	Out_Plunger_Parts_Alignment_Left_Drive_In			  	 :=FALSE;
-	Out_Plunger_Parts_Alignment_Right_Drive_In			 	 :=FALSE;
-	Out_Plunger_Parts_Alignment_Above_Drive_In				 :=FALSE;
-	Out_Plunger_Parts_Alignment_Left_Drive_Out				 :=TRUE;	
-	Out_Plunger_Parts_Alignment_Right_Drive_Out				 :=TRUE;	
-	Out_Plunger_Parts_Alignment_Above_Drive_Out				 :=TRUE;
+		Out_Plunger_Parts_Alignment_Left_Drive_In			  	 :=FALSE;
+		Out_Plunger_Parts_Alignment_Right_Drive_In			 	 :=FALSE;
+		Out_Plunger_Parts_Alignment_Above_Drive_In				 :=FALSE;
+		Out_Plunger_Parts_Alignment_Left_Drive_Out				 :=TRUE;	
+		Out_Plunger_Parts_Alignment_Right_Drive_Out				 :=TRUE;	
+		Out_Plunger_Parts_Alignment_Above_Drive_Out				 :=TRUE;
 END_IF
 
-IF Inp_Part_in_front_of_Crane AND Inp_Crane_Above
+IF Inp_Part_in_front_of_Crane AND Inp_Crane_Above AND Main.M_Machine_Release.Q1
 	THEN
-	Out_Conveyor_1_Motor_On:=FALSE;
-	Out_Plunger_Parts_Alignment_Left_Drive_Out				 :=FALSE;
-	Out_Plunger_Parts_Alignment_Right_Drive_Out				 :=FALSE;
-	Out_Plunger_Parts_Alignment_Above_Drive_Out				 :=FALSE;
-	Out_Plunger_Parts_Alignment_Left_Drive_In			 	 :=TRUE;
-	Out_Plunger_Parts_Alignment_Right_Drive_In			 	 :=TRUE;		
-	Out_Plunger_Parts_Alignment_Above_Drive_In				 :=TRUE;	
-	M_Conveyor_1_is_ready_to_ship_on_Conveyor_2				 :=TRUE;	
+		Out_Conveyor_1_Motor_On:=FALSE;
+		Out_Plunger_Parts_Alignment_Left_Drive_Out				 :=FALSE;
+		Out_Plunger_Parts_Alignment_Right_Drive_Out				 :=FALSE;
+		Out_Plunger_Parts_Alignment_Above_Drive_Out				 :=FALSE;
+		Out_Plunger_Parts_Alignment_Left_Drive_In			 	 :=TRUE;
+		Out_Plunger_Parts_Alignment_Right_Drive_In			 	 :=TRUE;		
+		Out_Plunger_Parts_Alignment_Above_Drive_In				 :=TRUE;	
+		M_Conveyor_1_is_ready_to_ship_on_Conveyor_2				 :=TRUE;	
 END_IF
 
-IF M_Conveyor_1_is_ready_to_ship_on_Conveyor_2 AND Main.conveyor_2.M_Conveyor_2_is_ready_to_take_Part_From_Conveyor_2
+IF M_Conveyor_1_is_ready_to_ship_on_Conveyor_2 AND Main.conveyor_2.M_Conveyor_2_is_ready_to_take_Part_From_Conveyor_2 AND Main.M_Machine_Release.Q1
 	THEN
-	Out_Crane_Drive_Up:=FALSE;
-	Out_Crane_Drive_Down:=TRUE;
+		Out_Crane_Drive_Up:=FALSE;
+		Out_Crane_Drive_Down:=TRUE;
 END_IF
 
-IF Inp_Part_in_front_of_Crane AND Inp_Crane_Below AND Inp_Crane_In AND NOT Out_Crane_Take_a_Part
+IF Inp_Part_in_front_of_Crane AND Inp_Crane_Below AND Inp_Crane_In AND NOT Out_Crane_Take_a_Part AND Main.M_Machine_Release.Q1
 	THEN 
-	Out_Crane_Take_a_Part:=TRUE;
-	M_Part_Loading:=TRUE;
+		Out_Crane_Take_a_Part:=TRUE;
+		M_Part_Loading:=TRUE;
 END_IF	
 
-IF Out_Crane_Take_a_Part AND Inp_Crane_Below AND Inp_Crane_In AND M_Part_Loading
+IF Out_Crane_Take_a_Part AND Inp_Crane_Below AND Inp_Crane_In AND M_Part_Loading AND Main.M_Machine_Release.Q1
 	THEN 
-	Out_Crane_Drive_Down:=FALSE; 
-	Out_Crane_Drive_Up:=TRUE;
+		Out_Crane_Drive_Down:=FALSE; 
+		Out_Crane_Drive_Up:=TRUE;
 END_IF
 
-IF Out_Crane_Take_a_Part AND Inp_Crane_Above AND Inp_Crane_In AND M_Part_Loading
+IF Out_Crane_Take_a_Part AND Inp_Crane_Above AND Inp_Crane_In AND M_Part_Loading AND Main.M_Machine_Release.Q1
 	THEN 
-	Out_Crane_Drive_In:=FALSE;
-	Out_Crane_Drive_Out:=TRUE;
+		Out_Crane_Drive_In:=FALSE;
+		Out_Crane_Drive_Out:=TRUE;
 END_IF
 
-IF Out_Crane_Take_a_Part AND Inp_Crane_Above AND Inp_Crane_Out AND M_Part_Loading
+IF Out_Crane_Take_a_Part AND Inp_Crane_Above AND Inp_Crane_Out AND M_Part_Loading AND Main.M_Machine_Release.Q1
 	THEN 		
-	Out_Crane_Drive_Up:=FALSE;
-	Out_Crane_Drive_Down:=TRUE;
+		Out_Crane_Drive_Up:=FALSE;
+		Out_Crane_Drive_Down:=TRUE;
 END_IF
 
-IF Out_Crane_Take_a_Part AND Inp_Crane_Below AND Inp_Crane_Out AND M_Part_Loading
+IF Out_Crane_Take_a_Part AND Inp_Crane_Below AND Inp_Crane_Out AND M_Part_Loading AND Main.M_Machine_Release.Q1
 	THEN	
-	Out_Crane_Take_a_Part:=FALSE;
+		Out_Crane_Take_a_Part:=FALSE;
 END_IF
 
-IF NOT Out_Crane_Take_a_Part AND Inp_Crane_Below AND Inp_Crane_Out AND M_Part_Loading
+IF NOT Out_Crane_Take_a_Part AND Inp_Crane_Below AND Inp_Crane_Out AND M_Part_Loading AND Main.M_Machine_Release.Q1
 	THEN	
-	Out_Crane_Drive_Down:=FALSE; 
-	Out_Crane_Drive_Up:=TRUE;
+		Out_Crane_Drive_Down:=FALSE; 
+		Out_Crane_Drive_Up:=TRUE;
 END_IF
 
-IF NOT Out_Crane_Take_a_Part AND Inp_Crane_Above AND Inp_Crane_Out
+IF NOT Out_Crane_Take_a_Part AND Inp_Crane_Above AND Inp_Crane_Out AND Main.M_Machine_Release.Q1
 	THEN	
-	Out_Crane_Drive_Out:=FALSE;
-	Out_Crane_Drive_In:=TRUE;
-	M_Part_is_shipped_on_the_Conveyor_2:=TRUE;
-	M_Conveyor_1_is_ready_to_ship_on_Conveyor_2:=FALSE;
-	M_Part_Loading:=FALSE;
+		Out_Crane_Drive_Out:=FALSE;
+		Out_Crane_Drive_In:=TRUE;
+		M_Part_is_shipped_on_the_Conveyor_2:=TRUE;
+		M_Conveyor_1_is_ready_to_ship_on_Conveyor_2:=FALSE;
+		M_Part_Loading:=FALSE;
 END_IF]]></ST>
     </Implementation>
     <LineIds Name="Conveyor_1">
       <LineId Id="258" Count="2" />
+      <LineId Id="445" Count="3" />
       <LineId Id="396" Count="0" />
+      <LineId Id="453" Count="0" />
       <LineId Id="261" Count="13" />
       <LineId Id="276" Count="5" />
       <LineId Id="397" Count="0" />
