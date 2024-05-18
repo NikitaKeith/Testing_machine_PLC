@@ -153,7 +153,16 @@
     <Content Include="Images\Conveyors\DOWN_OUT.png">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Images\Conveyors\m1.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Conveyors\m2.png">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Images\Conveyors\Main.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Conveyors\Main_new.png">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Images\Conveyors\Palette.png">

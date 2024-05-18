@@ -1,6 +1,6 @@
-<div id="Live-View" data-tchmi-type="TcHmi.Controls.System.TcHmiContent" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="1004" data-tchmi-width-unit="px" data-tchmi-height="625" data-tchmi-height-unit="px" data-tchmi-creator-viewport-height="600" data-tchmi-creator-viewport-width="1024">
+<div id="Live-View" data-tchmi-type="TcHmi.Controls.System.TcHmiContent" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="1004" data-tchmi-width-unit="px" data-tchmi-height="625" data-tchmi-height-unit="px" data-tchmi-creator-viewport-height="600" data-tchmi-creator-viewport-width="1024" data-tchmi-zindex="1" data-tchmi-zindex="1">
   
-  <div id="TcHmiTextblock_Live-View_1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="32" data-tchmi-height-unit="px" data-tchmi-left="16" data-tchmi-left-unit="px" data-tchmi-text="Live-View" data-tchmi-top="16" data-tchmi-top-unit="px" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-right="16" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="20">
+  <div id="TcHmiTextblock_Live-View_1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="32" data-tchmi-height-unit="px" data-tchmi-left="16" data-tchmi-left-unit="px" data-tchmi-text="Live-View" data-tchmi-top="16" data-tchmi-top-unit="px" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-right="16" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="20" data-tchmi-zindex="1">
     <script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
       [
       "headline-2"
@@ -8,7 +8,7 @@
     </script>
   </div>
 
-  <div id="Container_Live-View" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height-unit="px" data-tchmi-left="16" data-tchmi-left-unit="px" data-tchmi-top="48" data-tchmi-top-unit="px" data-tchmi-width-unit="px" data-tchmi-right-unit="px" data-tchmi-right="16" data-tchmi-height="435">
+  <div id="Container_Live-View" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height-unit="px" data-tchmi-left="16" data-tchmi-left-unit="px" data-tchmi-top="48" data-tchmi-top-unit="px" data-tchmi-width-unit="px" data-tchmi-right-unit="px" data-tchmi-right="16" data-tchmi-height="435" data-tchmi-zindex="1">
     <script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
       [
       "background-container"
@@ -20,9 +20,7 @@
   "color": "rgba(255, 255, 255, 1)"
 }
 </script>
-<div id="Main" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="398" data-tchmi-height-unit="px" data-tchmi-left="7" data-tchmi-left-unit="px" data-tchmi-src="Images/Conveyors/Main.png" data-tchmi-top="20" data-tchmi-top-unit="px" data-tchmi-width="957" data-tchmi-width-unit="px">
-</div>
-<div id="Sorter_Position_1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiEllipse" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="756" data-tchmi-left-unit="px" data-tchmi-top="208" data-tchmi-top-unit="px" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-zindex="7">
+<div id="Sorter_Position_1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiEllipse" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="756" data-tchmi-left-unit="px" data-tchmi-top="208" data-tchmi-top-unit="px" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-zindex="8">
 
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
@@ -105,7 +103,7 @@
 ]
 </script>
 </div>
-<div id="Sorter_Position_2" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiEllipse" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="783" data-tchmi-left-unit="px" data-tchmi-top="223" data-tchmi-top-unit="px" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-zindex="7">
+<div id="Sorter_Position_2" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiEllipse" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="783" data-tchmi-left-unit="px" data-tchmi-top="223" data-tchmi-top-unit="px" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-zindex="8">
 
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
@@ -188,7 +186,7 @@
 ]
 </script>
 </div>
-<div id="Sorter_Position_3" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiEllipse" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="810" data-tchmi-left-unit="px" data-tchmi-top="237" data-tchmi-top-unit="px" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-zindex="7">
+<div id="Sorter_Position_3" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiEllipse" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="810" data-tchmi-left-unit="px" data-tchmi-top="237" data-tchmi-top-unit="px" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-zindex="8">
 
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
@@ -271,7 +269,7 @@
 ]
 </script>
 </div>
-<div id="Sorter_Position_4" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiEllipse" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="729" data-tchmi-left-unit="px" data-tchmi-top="221" data-tchmi-top-unit="px" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-zindex="7">
+<div id="Sorter_Position_4" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiEllipse" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="729" data-tchmi-left-unit="px" data-tchmi-top="221" data-tchmi-top-unit="px" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-zindex="8">
 
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
@@ -354,7 +352,7 @@
 ]
 </script>
 </div>
-<div id="Sorter_Position_5" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiEllipse" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="756" data-tchmi-left-unit="px" data-tchmi-top="236" data-tchmi-top-unit="px" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-zindex="7">
+<div id="Sorter_Position_5" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiEllipse" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="756" data-tchmi-left-unit="px" data-tchmi-top="236" data-tchmi-top-unit="px" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-zindex="8">
 
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
@@ -437,7 +435,7 @@
 ]
 </script>
 </div>
-<div id="Sorter_Position_6" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiEllipse" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="783" data-tchmi-left-unit="px" data-tchmi-top="251" data-tchmi-top-unit="px" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-zindex="7">
+<div id="Sorter_Position_6" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiEllipse" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="783" data-tchmi-left-unit="px" data-tchmi-top="251" data-tchmi-top-unit="px" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-zindex="8">
 
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
@@ -520,7 +518,7 @@
 ]
 </script>
 </div>
-<div id="Sorter_Position_7" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiEllipse" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="702" data-tchmi-left-unit="px" data-tchmi-top="236" data-tchmi-top-unit="px" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-zindex="7">
+<div id="Sorter_Position_7" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiEllipse" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="702" data-tchmi-left-unit="px" data-tchmi-top="236" data-tchmi-top-unit="px" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-zindex="8">
 
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
@@ -603,7 +601,7 @@
 ]
 </script>
 </div>
-<div id="Sorter_Position_8" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiEllipse" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="730" data-tchmi-left-unit="px" data-tchmi-top="249" data-tchmi-top-unit="px" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-zindex="7">
+<div id="Sorter_Position_8" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiEllipse" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="730" data-tchmi-left-unit="px" data-tchmi-top="249" data-tchmi-top-unit="px" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-zindex="8">
 
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
@@ -686,7 +684,7 @@
 ]
 </script>
 </div>
-<div id="Sorter_Position_9" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiEllipse" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="757" data-tchmi-left-unit="px" data-tchmi-top="264" data-tchmi-top-unit="px" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-zindex="7">
+<div id="Sorter_Position_9" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiEllipse" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="757" data-tchmi-left-unit="px" data-tchmi-top="264" data-tchmi-top-unit="px" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-zindex="8">
 
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
@@ -769,7 +767,7 @@
 ]
 </script>
 </div>
-<div id="Crane_Above_In" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="56" data-tchmi-height-unit="px" data-tchmi-left="343" data-tchmi-left-unit="px" data-tchmi-src="Images/Conveyors/UP_IN.png" data-tchmi-top="33" data-tchmi-top-unit="px" data-tchmi-width="34" data-tchmi-width-unit="px">
+<div id="Crane_Above_In" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="56" data-tchmi-height-unit="px" data-tchmi-left="343" data-tchmi-left-unit="px" data-tchmi-src="Images/Conveyors/UP_IN.png" data-tchmi-top="33" data-tchmi-top-unit="px" data-tchmi-width="34" data-tchmi-width-unit="px" data-tchmi-zindex="1">
 
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
@@ -848,7 +846,7 @@
 ]
 </script>
 </div>
-<div id="Crane_Up_Out" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="69" data-tchmi-height-unit="px" data-tchmi-left="343" data-tchmi-left-unit="px" data-tchmi-src="Images/Conveyors/UP_OUT.png" data-tchmi-top="33" data-tchmi-top-unit="px" data-tchmi-width="56" data-tchmi-width-unit="px">
+<div id="Crane_Up_Out" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="69" data-tchmi-height-unit="px" data-tchmi-left="343" data-tchmi-left-unit="px" data-tchmi-src="Images/Conveyors/UP_OUT.png" data-tchmi-top="33" data-tchmi-top-unit="px" data-tchmi-width="56" data-tchmi-width-unit="px" data-tchmi-zindex="1">
 
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
@@ -927,7 +925,7 @@
 ]
 </script>
 </div>
-<div id="Crane_Down_In" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="71" data-tchmi-height-unit="px" data-tchmi-left="343" data-tchmi-left-unit="px" data-tchmi-src="Images/Conveyors/DOWN_IN.png" data-tchmi-top="33" data-tchmi-top-unit="px" data-tchmi-width="35" data-tchmi-width-unit="px">
+<div id="Crane_Down_In" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="71" data-tchmi-height-unit="px" data-tchmi-left="343" data-tchmi-left-unit="px" data-tchmi-src="Images/Conveyors/DOWN_IN.png" data-tchmi-top="33" data-tchmi-top-unit="px" data-tchmi-width="35" data-tchmi-width-unit="px" data-tchmi-zindex="1">
 
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
@@ -1006,7 +1004,7 @@
 ]
 </script>
 </div>
-<div id="Crane_Down_Out" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="86" data-tchmi-height-unit="px" data-tchmi-left="343" data-tchmi-left-unit="px" data-tchmi-src="Images/Conveyors/DOWN_OUT.png" data-tchmi-top="33" data-tchmi-top-unit="px" data-tchmi-width="56" data-tchmi-width-unit="px">
+<div id="Crane_Down_Out" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="86" data-tchmi-height-unit="px" data-tchmi-left="343" data-tchmi-left-unit="px" data-tchmi-src="Images/Conveyors/DOWN_OUT.png" data-tchmi-top="33" data-tchmi-top-unit="px" data-tchmi-width="56" data-tchmi-width-unit="px" data-tchmi-zindex="1">
 
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
@@ -1085,7 +1083,7 @@
 ]
 </script>
 </div>
-<div id="Part_On_Conveyor_1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="9" data-tchmi-height-unit="px" data-tchmi-left="82" data-tchmi-left-unit="px" data-tchmi-src="Images/Conveyors/Part.png" data-tchmi-top="266" data-tchmi-top-unit="px" data-tchmi-width="6" data-tchmi-width-unit="px">
+<div id="Part_On_Conveyor_1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="9" data-tchmi-height-unit="px" data-tchmi-left="82" data-tchmi-left-unit="px" data-tchmi-src="Images/Conveyors/Part.png" data-tchmi-top="266" data-tchmi-top-unit="px" data-tchmi-width="6" data-tchmi-width-unit="px" data-tchmi-zindex="1">
 
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
@@ -1150,7 +1148,7 @@
 ]
 </script>
 </div>
-<div id="Part_in_front_of_Parts_Alignment" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="9" data-tchmi-height-unit="px" data-tchmi-left="367" data-tchmi-left-unit="px" data-tchmi-src="Images/Conveyors/Part.png" data-tchmi-top="103" data-tchmi-top-unit="px" data-tchmi-width="6" data-tchmi-width-unit="px">
+<div id="Part_in_front_of_Parts_Alignment" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="9" data-tchmi-height-unit="px" data-tchmi-left="250" data-tchmi-left-unit="px" data-tchmi-src="Images/Conveyors/Part.png" data-tchmi-top="168" data-tchmi-top-unit="px" data-tchmi-width="6" data-tchmi-width-unit="px" data-tchmi-zindex="1">
 
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
@@ -1215,7 +1213,7 @@
 ]
 </script>
 </div>
-<div id="Part_in_front_of_Crane" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="9" data-tchmi-height-unit="px" data-tchmi-left="258" data-tchmi-left-unit="px" data-tchmi-src="Images/Conveyors/Part.png" data-tchmi-top="166" data-tchmi-top-unit="px" data-tchmi-width="6" data-tchmi-width-unit="px">
+<div id="Part_in_front_of_Crane" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="9" data-tchmi-height-unit="px" data-tchmi-left="367" data-tchmi-left-unit="px" data-tchmi-src="Images/Conveyors/Part.png" data-tchmi-top="104" data-tchmi-top-unit="px" data-tchmi-width="6" data-tchmi-width-unit="px" data-tchmi-zindex="1">
 
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
@@ -1230,14 +1228,14 @@
             "if": [
               {
                 "compare1": {
-                  "objectType": "StaticValue",
+                  "objectType": "Symbol",
                   "valueType": "tchmi:general#/definitions/BOOL",
-                  "value": false
+                  "symbolExpression": "%s%PLC1.MAIN.conveyor_1.Inp_Part_in_front_of_Crane%/s%"
                 },
                 "compare2": {
                   "objectType": "StaticValue",
-                  "valueType": "tchmi:general#/definitions/String",
-                  "value": null
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
                 },
                 "compareOperator": "==",
                 "logic": null
@@ -1247,10 +1245,10 @@
               {
                 "objectType": "WriteToSymbol",
                 "active": true,
-                "symbolExpression": null,
+                "symbolExpression": "%ctrl%Part_in_front_of_Crane::Visibility%/ctrl%",
                 "value": {
                   "objectType": "StaticValue",
-                  "valueType": "tchmi:general#/definitions/String",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
                   "value": "Visible"
                 },
                 "asyncWait": true
@@ -1262,10 +1260,10 @@
               {
                 "objectType": "WriteToSymbol",
                 "active": true,
-                "symbolExpression": null,
+                "symbolExpression": "%ctrl%Part_in_front_of_Crane::Visibility%/ctrl%",
                 "value": {
                   "objectType": "StaticValue",
-                  "valueType": "tchmi:general#/definitions/String",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
                   "value": "Hidden"
                 },
                 "asyncWait": true
@@ -1280,18 +1278,72 @@
 ]
 </script>
 </div>
-<div id="TcHmi_Controls_Beckhoff_TcHmiImage_4" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="19" data-tchmi-height-unit="px" data-tchmi-left="341" data-tchmi-left-unit="px" data-tchmi-src="Images/Conveyors/Palette.png" data-tchmi-top="144" data-tchmi-top-unit="px" data-tchmi-width="30" data-tchmi-width-unit="px">
+<div id="Conveyor_3_Palette_Left_Side" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="19" data-tchmi-height-unit="px" data-tchmi-left="341" data-tchmi-left-unit="px" data-tchmi-src="Images/Conveyors/Palette.png" data-tchmi-top="144" data-tchmi-top-unit="px" data-tchmi-width="30" data-tchmi-width-unit="px" data-tchmi-zindex="1">
 
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
   {
     "event": "%s%PLC1.MAIN.Inp_Conveyor_3_Palette_Left_Side%/s%",
-    "actions": []
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "symbolExpression": "%s%PLC1.MAIN.Inp_Conveyor_3_Palette_Left_Side%/s%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%Conveyor_3_Palette_Left_Side::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Visible"
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%Conveyor_3_Palette_Left_Side::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Hidden"
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
   }
 ]
 </script>
 </div>
-<div id="TcHmi_Controls_Beckhoff_TcHmiImage_5" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="19" data-tchmi-height-unit="px" data-tchmi-left="380" data-tchmi-left-unit="px" data-tchmi-src="Images/Conveyors/Palette.png" data-tchmi-top="114" data-tchmi-top-unit="px" data-tchmi-width="30" data-tchmi-width-unit="px">
+<div id="Conveyor_2_Palette_Left_Side" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="19" data-tchmi-height-unit="px" data-tchmi-left="380" data-tchmi-left-unit="px" data-tchmi-src="Images/Conveyors/Palette.png" data-tchmi-top="114" data-tchmi-top-unit="px" data-tchmi-width="30" data-tchmi-width-unit="px" data-tchmi-zindex="1">
 
 
 
@@ -1308,14 +1360,14 @@
             "if": [
               {
                 "compare1": {
-                  "objectType": "StaticValue",
+                  "objectType": "Symbol",
                   "valueType": "tchmi:general#/definitions/BOOL",
-                  "value": false
+                  "symbolExpression": "%s%PLC1.MAIN.Inp_Conveyor_2_Palette_Left_Side%/s%"
                 },
                 "compare2": {
                   "objectType": "StaticValue",
-                  "valueType": "tchmi:general#/definitions/String",
-                  "value": null
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
                 },
                 "compareOperator": "==",
                 "logic": null
@@ -1325,10 +1377,10 @@
               {
                 "objectType": "WriteToSymbol",
                 "active": true,
-                "symbolExpression": null,
+                "symbolExpression": "%ctrl%Conveyor_2_Palette_Left_Side::Visibility%/ctrl%",
                 "value": {
                   "objectType": "StaticValue",
-                  "valueType": "tchmi:general#/definitions/String",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
                   "value": "Visible"
                 },
                 "asyncWait": true
@@ -1340,10 +1392,10 @@
               {
                 "objectType": "WriteToSymbol",
                 "active": true,
-                "symbolExpression": null,
+                "symbolExpression": "%ctrl%Conveyor_2_Palette_Left_Side::Visibility%/ctrl%",
                 "value": {
                   "objectType": "StaticValue",
-                  "valueType": "tchmi:general#/definitions/String",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
                   "value": "Hidden"
                 },
                 "asyncWait": true
@@ -1358,7 +1410,7 @@
 ]
 </script>
 </div>
-<div id="TcHmi_Controls_Beckhoff_TcHmiImage_6" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="9" data-tchmi-height-unit="px" data-tchmi-left="392" data-tchmi-left-unit="px" data-tchmi-src="Images/Conveyors/Part.png" data-tchmi-top="114" data-tchmi-top-unit="px" data-tchmi-width="6" data-tchmi-width-unit="px">
+<div id="Conveyor_2_Part_Left_Side" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="9" data-tchmi-height-unit="px" data-tchmi-left="392" data-tchmi-left-unit="px" data-tchmi-src="Images/Conveyors/Part.png" data-tchmi-top="114" data-tchmi-top-unit="px" data-tchmi-width="6" data-tchmi-width-unit="px" data-tchmi-zindex="1">
 
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
@@ -1373,14 +1425,14 @@
             "if": [
               {
                 "compare1": {
-                  "objectType": "StaticValue",
+                  "objectType": "Symbol",
                   "valueType": "tchmi:general#/definitions/BOOL",
-                  "value": false
+                  "symbolExpression": "%s%PLC1.MAIN.conveyor_1.M_Part_is_shipped_on_the_Conveyor_2%/s%"
                 },
                 "compare2": {
                   "objectType": "StaticValue",
-                  "valueType": "tchmi:general#/definitions/String",
-                  "value": null
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
                 },
                 "compareOperator": "==",
                 "logic": null
@@ -1390,10 +1442,10 @@
               {
                 "objectType": "WriteToSymbol",
                 "active": true,
-                "symbolExpression": null,
+                "symbolExpression": "%ctrl%Conveyor_2_Part_Left_Side::Visibility%/ctrl%",
                 "value": {
                   "objectType": "StaticValue",
-                  "valueType": "tchmi:general#/definitions/String",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
                   "value": "Visible"
                 },
                 "asyncWait": true
@@ -1405,10 +1457,10 @@
               {
                 "objectType": "WriteToSymbol",
                 "active": true,
-                "symbolExpression": null,
+                "symbolExpression": "%ctrl%Conveyor_2_Part_Left_Side::Visibility%/ctrl%",
                 "value": {
                   "objectType": "StaticValue",
-                  "valueType": "tchmi:general#/definitions/String",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
                   "value": "Hidden"
                 },
                 "asyncWait": true
@@ -1423,9 +1475,7 @@
 ]
 </script>
 </div>
-<div id="TcHmi_Controls_Beckhoff_TcHmiImage_7" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="19" data-tchmi-height-unit="px" data-tchmi-left="499" data-tchmi-left-unit="px" data-tchmi-src="Images/Conveyors/Palette.png" data-tchmi-top="183" data-tchmi-top-unit="px" data-tchmi-width="30" data-tchmi-width-unit="px">
-</div>
-<div id="TcHmi_Controls_Beckhoff_TcHmiImage_8" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="9" data-tchmi-height-unit="px" data-tchmi-left="511" data-tchmi-left-unit="px" data-tchmi-src="Images/Conveyors/Part.png" data-tchmi-top="185" data-tchmi-top-unit="px" data-tchmi-width="6" data-tchmi-width-unit="px">
+<div id="Palette_in_front_of_Tester" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="19" data-tchmi-height-unit="px" data-tchmi-left="499" data-tchmi-left-unit="px" data-tchmi-src="Images/Conveyors/Palette.png" data-tchmi-top="182" data-tchmi-top-unit="px" data-tchmi-width="30" data-tchmi-width-unit="px" data-tchmi-zindex="1">
 
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
@@ -1440,14 +1490,14 @@
             "if": [
               {
                 "compare1": {
-                  "objectType": "StaticValue",
-                  "valueType": "tchmi:general#/definitions/BOOL",
-                  "value": false
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "symbolExpression": "%s%PLC1.MAIN.Inp_Palette_in_front_of_Tester%/s%"
                 },
                 "compare2": {
                   "objectType": "StaticValue",
-                  "valueType": "tchmi:general#/definitions/String",
-                  "value": null
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
                 },
                 "compareOperator": "==",
                 "logic": null
@@ -1457,10 +1507,10 @@
               {
                 "objectType": "WriteToSymbol",
                 "active": true,
-                "symbolExpression": null,
+                "symbolExpression": "%ctrl%Palette_in_front_of_Tester::Visibility%/ctrl%",
                 "value": {
                   "objectType": "StaticValue",
-                  "valueType": "tchmi:general#/definitions/String",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
                   "value": "Visible"
                 },
                 "asyncWait": true
@@ -1472,10 +1522,10 @@
               {
                 "objectType": "WriteToSymbol",
                 "active": true,
-                "symbolExpression": null,
+                "symbolExpression": "%ctrl%Palette_in_front_of_Tester::Visibility%/ctrl%",
                 "value": {
                   "objectType": "StaticValue",
-                  "valueType": "tchmi:general#/definitions/String",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
                   "value": "Hidden"
                 },
                 "asyncWait": true
@@ -1490,7 +1540,72 @@
 ]
 </script>
 </div>
-<div id="TcHmi_Controls_Beckhoff_TcHmiImage_9" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="19" data-tchmi-height-unit="px" data-tchmi-left="612" data-tchmi-left-unit="px" data-tchmi-src="Images/Conveyors/Palette.png" data-tchmi-top="248" data-tchmi-top-unit="px" data-tchmi-width="30" data-tchmi-width-unit="px">
+<div id="Part_in_front_of_Tester" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="9" data-tchmi-height-unit="px" data-tchmi-left="511" data-tchmi-left-unit="px" data-tchmi-src="Images/Conveyors/Part.png" data-tchmi-top="185" data-tchmi-top-unit="px" data-tchmi-width="6" data-tchmi-width-unit="px" data-tchmi-zindex="1">
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "%s%PLC1.MAIN.Inp_Palette_in_front_of_Tester%/s%",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "symbolExpression": "%s%PLC1.MAIN.Inp_Palette_in_front_of_Tester%/s%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%Part_in_front_of_Tester::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Visible"
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%Part_in_front_of_Tester::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Hidden"
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+<div id="Conveyor_2_Palette_Right_Side" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="19" data-tchmi-height-unit="px" data-tchmi-left="612" data-tchmi-left-unit="px" data-tchmi-src="Images/Conveyors/Palette.png" data-tchmi-top="248" data-tchmi-top-unit="px" data-tchmi-width="30" data-tchmi-width-unit="px" data-tchmi-zindex="1">
 
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
@@ -1505,14 +1620,14 @@
             "if": [
               {
                 "compare1": {
-                  "objectType": "StaticValue",
+                  "objectType": "Symbol",
                   "valueType": "tchmi:general#/definitions/BOOL",
-                  "value": false
+                  "symbolExpression": "%s%PLC1.MAIN.Inp_Conveyor_3_Palette_Right_Side%/s%"
                 },
                 "compare2": {
                   "objectType": "StaticValue",
-                  "valueType": "tchmi:general#/definitions/String",
-                  "value": null
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
                 },
                 "compareOperator": "==",
                 "logic": null
@@ -1522,10 +1637,10 @@
               {
                 "objectType": "WriteToSymbol",
                 "active": true,
-                "symbolExpression": null,
+                "symbolExpression": "%ctrl%Conveyor_2_Palette_Right_Side::Visibility%/ctrl%",
                 "value": {
                   "objectType": "StaticValue",
-                  "valueType": "tchmi:general#/definitions/String",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
                   "value": "Visible"
                 },
                 "asyncWait": true
@@ -1537,10 +1652,10 @@
               {
                 "objectType": "WriteToSymbol",
                 "active": true,
-                "symbolExpression": null,
+                "symbolExpression": "%ctrl%Conveyor_2_Palette_Right_Side::Visibility%/ctrl%",
                 "value": {
                   "objectType": "StaticValue",
-                  "valueType": "tchmi:general#/definitions/String",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
                   "value": "Hidden"
                 },
                 "asyncWait": true
@@ -1555,25 +1670,393 @@
 ]
 </script>
 </div>
-<div id="TcHmi_Controls_Beckhoff_TcHmiImage_10" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="9" data-tchmi-height-unit="px" data-tchmi-left="624" data-tchmi-left-unit="px" data-tchmi-src="Images/Conveyors/Part.png" data-tchmi-top="250" data-tchmi-top-unit="px" data-tchmi-width="6" data-tchmi-width-unit="px">
-</div>
-<div id="TcHmi_Controls_Beckhoff_TcHmiImage_11" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="19" data-tchmi-height-unit="px" data-tchmi-left="578" data-tchmi-left-unit="px" data-tchmi-src="Images/Conveyors/Palette.png" data-tchmi-top="280" data-tchmi-top-unit="px" data-tchmi-width="30" data-tchmi-width-unit="px">
+<div id="Conveyor_2_Part_Right_Side" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="9" data-tchmi-height-unit="px" data-tchmi-left="624" data-tchmi-left-unit="px" data-tchmi-src="Images/Conveyors/Part.png" data-tchmi-top="250" data-tchmi-top-unit="px" data-tchmi-width="6" data-tchmi-width-unit="px" data-tchmi-zindex="1">
 
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
   {
     "event": "%s%PLC1.MAIN.Inp_Conveyor_3_Palette_Right_Side%/s%",
-    "actions": []
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "symbolExpression": "%s%PLC1.MAIN.Inp_Conveyor_3_Palette_Right_Side%/s%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%Conveyor_2_Part_Right_Side::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Visible"
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%Conveyor_2_Part_Right_Side::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Hidden"
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
   }
 ]
 </script>
 </div>
-<div id="Part_At_Conveyor" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="9" data-tchmi-height-unit="px" data-tchmi-left="46" data-tchmi-left-unit="px" data-tchmi-src="Images/Conveyors/Part.png" data-tchmi-top="313" data-tchmi-top-unit="px" data-tchmi-width="6" data-tchmi-width-unit="px">
+<div id="Conveyor_3_Palette_Right_Side" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="19" data-tchmi-height-unit="px" data-tchmi-left="578" data-tchmi-left-unit="px" data-tchmi-src="Images/Conveyors/Palette.png" data-tchmi-top="280" data-tchmi-top-unit="px" data-tchmi-width="30" data-tchmi-width-unit="px" data-tchmi-zindex="1">
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "%s%PLC1.MAIN.Inp_Conveyor_3_Palette_Right_Side%/s%",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "symbolExpression": "%s%PLC1.MAIN.Inp_Conveyor_3_Palette_Right_Side%/s%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%Conveyor_3_Palette_Right_Side::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Visible"
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%Conveyor_3_Palette_Right_Side::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Hidden"
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+<div id="Part_At_Conveyor" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="9" data-tchmi-height-unit="px" data-tchmi-left="46" data-tchmi-left-unit="px" data-tchmi-src="Images/Conveyors/Part.png" data-tchmi-top="313" data-tchmi-top-unit="px" data-tchmi-width="6" data-tchmi-width-unit="px" data-tchmi-zindex="1">
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
   {
     "event": "%s%PLC1.MAIN.Inp_Part_On_Conveyor_1%/s%",
-    "actions": []
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "symbolExpression": "%s%PLC1.MAIN.conveyor_1.Inp_Part_at_Conveyor_1%/s%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%Part_At_Conveyor::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Visible"
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%Part_At_Conveyor::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Hidden"
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+<div id="TcHmi_Controls_Beckhoff_TcHmiImage" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="398" data-tchmi-height-unit="px" data-tchmi-left="7" data-tchmi-left-unit="px" data-tchmi-src="Images/Conveyors/Main_new.png" data-tchmi-top="20" data-tchmi-top-unit="px" data-tchmi-width="957" data-tchmi-width-unit="px" data-tchmi-zindex="0">
+</div>
+<div id="Conveyor_3_Motor_On" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="28" data-tchmi-height-unit="px" data-tchmi-left="511" data-tchmi-left-unit="px" data-tchmi-src="Images/Conveyors/m1.png" data-tchmi-top="301" data-tchmi-top-unit="px" data-tchmi-width="31" data-tchmi-width-unit="px">
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "%s%PLC1.MAIN.Out_Conveyor_3_Motor_On%/s%",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "symbolExpression": "%s%PLC1.MAIN.Out_Conveyor_3_Motor_On%/s%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%Conveyor_3_Motor_On::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Visible"
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%Conveyor_3_Motor_On::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Hidden"
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+<div id="Conveyor_2_Motor_On" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="392" data-tchmi-left-unit="px" data-tchmi-src="Images/Conveyors/m1.png" data-tchmi-top="76" data-tchmi-top-unit="px" data-tchmi-width="29" data-tchmi-width-unit="px">
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "%s%PLC1.MAIN.Out_Conveyor_2_Motor_On%/s%",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "symbolExpression": "%s%PLC1.MAIN.Out_Conveyor_2_Motor_On%/s%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%Conveyor_2_Motor_On::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Visible"
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%Conveyor_2_Motor_On::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Hidden"
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+<div id="TcHmi_Controls_Beckhoff_TcHmiImage_3" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="27" data-tchmi-height-unit="px" data-tchmi-left="50" data-tchmi-left-unit="px" data-tchmi-src="Images/Conveyors/m2.png" data-tchmi-top="232" data-tchmi-top-unit="px" data-tchmi-width="30" data-tchmi-width-unit="px">
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "%s%PLC1.MAIN.Out_Conveyor_1_Motor_On%/s%",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "symbolExpression": "%s%PLC1.MAIN.Out_Conveyor_1_Motor_On%/s%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmi_Controls_Beckhoff_TcHmiImage_3::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Visible"
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmi_Controls_Beckhoff_TcHmiImage_3::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Hidden"
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
   }
 ]
 </script>

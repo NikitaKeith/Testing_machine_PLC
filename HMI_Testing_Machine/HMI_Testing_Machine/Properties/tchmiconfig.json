@@ -76,14 +76,14 @@
       "preloadBindings": false
     },
     {
-      "url": "Content/Statistic.content",
+      "url": "Content/Manual_Control.content",
       "preload": false,
       "keepAlive": false,
       "loadSync": false,
       "preloadBindings": false
     },
     {
-      "url": "Content/Manual_Control.content",
+      "url": "Content/Statistic.content",
       "preload": false,
       "keepAlive": false,
       "loadSync": false,

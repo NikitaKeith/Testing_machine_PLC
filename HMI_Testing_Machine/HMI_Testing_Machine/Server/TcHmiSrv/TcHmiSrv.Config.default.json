@@ -2679,6 +2679,26 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.MAIN.Inp_Conveyor_2_Palette_Left_Side": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::MAIN::Inp_Conveyor_2_Palette_Left_Side",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "attributes": {
+                            "TcAddressType": "Input"
+                        },
+                        "comment": "Part 2(Conveyor 2)"
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
         "PLC1.MAIN.Inp_Conveyor_3_Palette_Left_Side": {
             "ACCESS": 3,
             "DOMAIN": "ADS",
@@ -2903,6 +2923,117 @@
                         "attributes": {
                             "TcAddressType": "Input"
                         }
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.Out_Conveyor_1_Motor_On": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::MAIN::Out_Conveyor_1_Motor_On",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "attributes": {
+                            "TcAddressType": "Output"
+                        },
+                        "comment": "Main Terminal OUTPUTS\r\nPart 1(Conveyor 1)"
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.Out_Conveyor_2_Motor_On": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::MAIN::Out_Conveyor_2_Motor_On",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "attributes": {
+                            "TcAddressType": "Output"
+                        },
+                        "comment": "Part 2(Conveyor 2)"
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.Out_Conveyor_3_Motor_On": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::MAIN::Out_Conveyor_3_Motor_On",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "attributes": {
+                            "TcAddressType": "Output"
+                        },
+                        "comment": "Part 3(Conveyor 3)"
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.conveyor_1.Inp_Part_at_Conveyor_1": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::MAIN::conveyor_1::Inp_Part_at_Conveyor_1",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "propertyOrder": 1
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.conveyor_1.Inp_Part_in_front_of_Crane": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::MAIN::conveyor_1::Inp_Part_in_front_of_Crane",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "propertyOrder": 12
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.MAIN.conveyor_1.Inp_Part_in_front_of_Parts_Alignment": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::MAIN::conveyor_1::Inp_Part_in_front_of_Parts_Alignment",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "propertyOrder": 5
                     }
                 ]
             },
@@ -4064,6 +4195,7 @@
                 "PLC1.GVL.EventBuffer": 3,
                 "PLC1.GVL.Part_is_Sorted": 3,
                 "PLC1.MAIN.Inp_Base_Positions": 3,
+                "PLC1.MAIN.Inp_Conveyor_2_Palette_Left_Side": 3,
                 "PLC1.MAIN.Inp_Conveyor_3_Palette_Left_Side": 3,
                 "PLC1.MAIN.Inp_Conveyor_3_Palette_Right_Side": 3,
                 "PLC1.MAIN.Inp_Crane_Above": 3,
@@ -4076,6 +4208,12 @@
                 "PLC1.MAIN.Inp_Part_in_front_of_Parts_Alignment": 3,
                 "PLC1.MAIN.Inp_Start_Button": 3,
                 "PLC1.MAIN.Inp_Stop_Button": 3,
+                "PLC1.MAIN.Out_Conveyor_1_Motor_On": 3,
+                "PLC1.MAIN.Out_Conveyor_2_Motor_On": 3,
+                "PLC1.MAIN.Out_Conveyor_3_Motor_On": 3,
+                "PLC1.MAIN.conveyor_1.Inp_Part_at_Conveyor_1": 3,
+                "PLC1.MAIN.conveyor_1.Inp_Part_in_front_of_Crane": 3,
+                "PLC1.MAIN.conveyor_1.Inp_Part_in_front_of_Parts_Alignment": 3,
                 "PLC1.MAIN.conveyor_1.M_Part_is_shipped_on_the_Conveyor_2": 3,
                 "PLC1.MAIN.conveyor_1.Start_Button": 3,
                 "PLC1.MAIN.conveyor_1.Stop_Button": 3,
